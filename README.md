@@ -14,6 +14,13 @@
 - Run it with ```python src/ex02/canny.py data/ds5.jpg```
 - Still working on it.
 
+## 3. &nbsp; Magic Filter
+- Taken from https://stackoverflow.com/questions/32913157/how-to-get-magic-color-effect-like-cam-scanner-using-opencv
+- Comparing Global V/S Adaptive thresholding
+- Involves: Grey scaling, thresholding, denoising
+- Run it with ```python src/ex03/thresholding.py data/ds6.jpg```
+
+
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
 - https://hypjudy.github.io/2017/03/28/cvpr-A4-paper-sheet-detection-and-cropping/
