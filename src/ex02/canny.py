@@ -1,5 +1,6 @@
 import cv2, numpy as np
 import sys
+import matplotlib.pyplot as plt
 
 def get_new(old):
     new = np.ones(old.shape, np.uint8)
@@ -16,7 +17,8 @@ if __name__ == '__main__':
 
     img = cv2.cvtColor(orig, cv2.COLOR_BGR2GRAY)
     cv2.GaussianBlur(img, (3,3), 0, img)
-
+    # img = cv2.bilateralFilter (img, 3, 30, 70)
+    img = cv2.medianBlur (img, 5)
 
     # this is to recognize white on white
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(MORPH,MORPH))
