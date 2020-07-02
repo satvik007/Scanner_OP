@@ -30,3 +30,9 @@ if __name__ == '__main__':
     cv2.waitKey(0)
 
     cv2.destroyAllWindows()
+
+    cv2.imwrite('src/ex03/images/'+'orig'+'.jpg', orig)
+    cv2.imwrite('src/ex03/images/'+'grey_img'+'.jpg', grey_img)
+    cv2.imwrite('src/ex03/images/'+'global_thresh'+'.jpg', global_thresh)
+    cv2.imwrite('src/ex03/images/'+'adapt_thresh'+'.jpg', adapt_thresh)
+    cv2.imwrite('src/ex03/images/'+'denoised'+'.jpg', denoised)
