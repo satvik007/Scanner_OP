@@ -12,7 +12,10 @@
 - Taken from https://stackoverflow.com/a/18908023/8558040
 - Much better than 1st example but doesn't work on all.
 - Run it with ```python src/ex02/canny.py data/ds5.jpg```
-- Still working on it.
+- Improved the original code with median filter and dilation with unit kernel.
+- Tried to add code for selection the best 4 points if the contour has more and failed. Will try again with more robust geometry.
+- Will study bilateral filter, could be an improvement over gaussian filter in preserving edges.
+- I am postponing it and will come later after trying other examples.
 
 ## 3. &nbsp; Magic Filter
 - Taken from https://stackoverflow.com/questions/32913157/how-to-get-magic-color-effect-like-cam-scanner-using-opencv

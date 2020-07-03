@@ -20,6 +20,7 @@ if __name__ == '__main__':
     # img = cv2.bilateralFilter (img, 3, 30, 70)
     img = cv2.medianBlur (img, 5)
 
+
     # this is to recognize white on white
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(MORPH,MORPH))
     dilated = cv2.dilate(img, kernel)
