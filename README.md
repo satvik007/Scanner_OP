@@ -32,7 +32,13 @@
 Topological Feature 
 - Image Corner Detection Using Hough Transform
 - https://github.com/ctodobom/OpenNoteScanner
+- https://stackoverflow.com/questions/8667818/opencv-c-obj-c-detecting-a-sheet-of-paper-square-detection
+- https://github.com/mmackh/MAImagePickerController-of-InstaPDF
 
+## Other resources
+- https://github.com/mysterioustrousers/MTGeometry For validation of selected points by user.
+- User manual from camscanner - http://s.intsig.net/r/manual/CamScanner_Android3.0_en-us.html
+- 
 ## Discussion ##
 - Please see the resources folder for the last 2 papers.
 - In general we will try to avoid implementing the papers ourselves but still should look at them for ideas.
