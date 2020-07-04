@@ -58,7 +58,9 @@ Topological Feature
 - https://docparser.com/blog/improve-ocr-accuracy/
 - http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Jyotirmoy09Contextual.pdf
 - https://ieeexplore.ieee.org/document/7881431
-- 
+- https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios
+- https://stackoverflow.com/questions/9152803/how-to-integrate-tesseract-ocr-library-to-a-c-program
+- Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya (z-lib.org).pdf Added book in Resources. (Who's going to read this. LOL)
 ## Discussion ##
 - Please see the resources folder for the last 2 papers.
 - In general we will try to avoid implementing the papers ourselves but still should look at them for ideas.
