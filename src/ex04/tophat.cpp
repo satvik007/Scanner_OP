@@ -1,5 +1,5 @@
 /**
- * Compile with g++ tophat.cpp -o app `pkg-config --cflags --libs opencv` && ./app
+ * Compile with g++ tophat.cpp -o tophat.o `pkg-config --cflags --libs opencv` && ./tophat.o
  * https://answers.opencv.org/question/66125/object-detection-in-nonuniform-illumination/#79578
 */
  

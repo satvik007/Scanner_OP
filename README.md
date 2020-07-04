@@ -35,6 +35,7 @@
   - Tophat addition and Blackhat removal
   - Adaptive Threshold
   - fastNlMeansDenoising
+- https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios in file filter.cpp yields very promising results. There is an unimplemented part related to no text found in the image. 
 - Will try Flat field correction and other techniques.
 - Still in progress
 ## Remaining resources for corner detection ##
@@ -63,6 +64,7 @@
 - how-to-integrate-tesseract-ocr-library-to-a-c-program
 - https://dropbox.tech/machine-learning/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning
 - https://docparser.com/blog/improve-ocr-accuracy/
+- https://stackoverflow.com/questions/23506105/extracting-text-opencv?rq=1
  
 ## Discussion ##
 - Please see the resources folder for the last 2 papers.
