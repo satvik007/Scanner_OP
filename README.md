@@ -40,27 +40,30 @@
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
 - https://hypjudy.github.io/2017/03/28/cvpr-A4-paper-sheet-detection-and-cropping/
-- Harris Comer Detection Based on the Multi-scale
-Topological Feature 
-- Image Corner Detection Using Hough Transform
 - https://github.com/ctodobom/OpenNoteScanner
 - https://stackoverflow.com/questions/8667818/opencv-c-obj-c-detecting-a-sheet-of-paper-square-detection
 - https://github.com/mmackh/MAImagePickerController-of-InstaPDF
 
-## Other resources
+## Filtering and Other resources
 - https://stackoverflow.com/a/62634900/8558040 Promising approach for shaddow correction and image enhancement.
 - https://github.com/mysterioustrousers/MTGeometry For validation of selected points by user.
 - User manual from camscanner - http://s.intsig.net/r/manual/CamScanner_Android3.0_en-us.html
 - https://android.developreference.com/article/18080320/How+to+get+Magic+Color+effect+like+Cam+Scanner+using+OpenCV
-- https://dropbox.tech/machine-learning/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning
 - https://medium.com/illuin/cleaning-up-dirty-scanned-documents-with-deep-learning-2e8e6de6cfa6
 - http://www.recogniform.net/eng/how-to-enhance-scanned-documents.html
-- https://docparser.com/blog/improve-ocr-accuracy/
 - http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Jyotirmoy09Contextual.pdf
 - https://ieeexplore.ieee.org/document/7881431
 - https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios
-- https://stackoverflow.com/questions/9152803/how-to-integrate-tesseract-ocr-library-to-a-c-program
-- Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya (z-lib.org).pdf Added book in Resources. (Who's going to read this. LOL)
+- https://stackoverflow.com/questions/9152803/
+- See ex01 for a good threshold_filter.
+- Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya. Added book in Resources. (Who's going to read this. LOL)
+
+## OCR Resources ##
+- https://tesseract-ocr.github.io/tessdoc/APIExample.html
+- how-to-integrate-tesseract-ocr-library-to-a-c-program
+- https://dropbox.tech/machine-learning/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning
+- https://docparser.com/blog/improve-ocr-accuracy/
+ 
 ## Discussion ##
 - Please see the resources folder for the last 2 papers.
 - In general we will try to avoid implementing the papers ourselves but still should look at them for ideas.
