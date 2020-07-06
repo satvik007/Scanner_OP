@@ -57,6 +57,7 @@
 - https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios
 - https://stackoverflow.com/questions/9152803/
 - See ex01 for a good threshold_filter.
+- https://github.com/mauvilsa/imgtxtenh
 - Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya. Added book in Resources. (Who's going to read this. LOL)
 
 ## OCR Resources ##

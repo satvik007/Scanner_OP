@@ -49,15 +49,18 @@ int main(int argc, char *argv[]) {
         fileName = string (argv[1]);
     }
     cv::Mat input = cv::imread(fileName, CV_LOAD_IMAGE_COLOR );
+    
+    // reduce dim for speed.
     int maxdim = input.cols; //std::max(input.rows,input.cols);
-    const int dim = 1024;
-    // if ( maxdim > dim )
-    // {
-    //     double scale = (double)dim/(double)maxdim;
-    //     cv::Mat t;
-    //     cv::resize( input, t, cv::Size(), scale,scale );
-    //     input = t;
-    // }
+    const int dim = 1536;
+    if ( maxdim > dim )
+    {
+        double scale = (double)dim/(double)maxdim;
+        cv::Mat t;
+        cv::resize( input, t, cv::Size(), scale,scale );
+        input = t;
+    } 
+
     if ( input.type()!=CV_8UC3 )
         CV_Error(CV_StsError,"!bgr");
     cv::Mat result;
@@ -125,13 +128,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    namedWindow ("original", WINDOW_AUTOSIZE);
-    imshow ("original", input);
+    // namedWindow ("original", WINDOW_AUTOSIZE);
+    // imshow ("original", input);
 
-    namedWindow ("img", WINDOW_AUTOSIZE);
-    imshow ("img", dst);
+    // namedWindow ("img", WINDOW_AUTOSIZE);
+    // imshow ("img", dst);
     imwrite ("images/filtered.jpg", dst);
-    waitKey(0);
+    // waitKey(0);
 
     destroyAllWindows();
 
