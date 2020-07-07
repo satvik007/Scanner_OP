@@ -38,23 +38,37 @@ bool cmp_lines(Line l1, Line l2) {
 /* Constructor */
 Hough::Hough(char* filePath) {
 	// init
-	rgb_img.load_bmp(filePath);
+	//if BMP file
+	// rgb_img.load_bmp(filePath);
+
+	//If jpg file
+	CImg<double> temp_rgb_img(filePath);
+	rgb_img = temp_rgb_img;
+
 	w = rgb_img.width();
 	h = rgb_img.height();
 	gray_img = gradients = CImg<double>(w, h, 1, 1, 0);
 	hough_space = CImg<double>(360, distance(w, h), 1, 1, 0);
 
 	rgb2gray();
-	gray_img.blur(BLUR_SIGMA).display();// .save("dataset1/blur.bmp");
+	gray_img.blur(BLUR_SIGMA);
+	//gray_img.blur(BLUR_SIGMA).display()
+	// gray_img.blur(BLUR_SIGMA).save("dataset1/blur.bmp");// .save("dataset1/blur.bmp");
 	getGradient();
-	gradients.display();// .save("dataset1/gradient.bmp");
+	// gradients.save("dataset1/gradient.bmp");// .save("dataset1/gradient.bmp");
 	houghTransform();
-	hough_space.display();// .save("dataset1/hough_space.bmp");
+	// hough_space.save("dataset1/hough_space.bmp");// .save("dataset1/hough_space.bmp");
 	getHoughEdges();
-	hough_space.display();// .save("dataset1/hough_space2.bmp");
+	if (ERROR){
+		return;
+	}
+	// hough_space.save("dataset1/hough_space2.bmp");// .save("dataset1/hough_space2.bmp");
 	getLines();
 	getCorners();
 	orderCorners();
+	if (ERROR){
+		return;
+	}
 	displayCornersAndLines();
 }
 
@@ -73,7 +87,7 @@ void Hough::rgb2gray() {
 	}
 }
 
-/* get intensity gradient magnitude for edge detection */
+/*  intensity gradient magnitude for edge detection */
 void Hough::getGradient() {
 	CImg_3x3(I, float);
 	cimg_for3x3(gray_img, x, y, 0, 0, I, float) {
@@ -195,13 +209,13 @@ void Hough::getHoughEdges() {
 		if (hough_edges.size() != 4) {
 			std::cout << "ERROR: Bug in function void Hough::getHoughEdges()!\
             Please check the ifelse statement to filter out four hough_edges." << std::endl;
-			exit(-2);
+			ERROR = True;
 		}
 	}
 	else if (hough_edges.size() < 4) {
 		std::cout << "ERROR: Please set parameter Q larger in file \
 			'hough_transform.h' to filter out four edges!" << std::endl;
-		exit(-1);
+		ERROR = True;
 	}
 }
 
@@ -282,7 +296,8 @@ void Hough::orderCorners() {
 	if (ordered_corners.size() < 4) {
 		std::cout << "ERROR: Can not detect four ordered_corners in function \
         void Hough::orderCorners(). Please try to adjust parameters." << std::endl;
-		exit(-3);
+		ERROR = true;
+		return;
 	}
 	x1 = ordered_corners[0].x, y1 = ordered_corners[0].y; // top-left
 	x2 = ordered_corners[1].x, y2 = ordered_corners[1].y; // top-right
