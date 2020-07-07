@@ -33,6 +33,15 @@ The procedure for compiling is:
     make
 
 
+# APPLICATION
+
+```sh
+$ imgtxtenh -t wolf page-010.jpg page-010.ite.png
+imgtxtenh: enhancing by Sauvola: width=80pixels, mfct=0.2, sfct=0.5
+imgtxtenh: removed 7858 small components from a total of 10400 (min. area: 6 pixels^2)
+```
+![Working](img/imgtxtenh_wolf.jpg)
+
 # REFERENCES
 
 [1] Sauvola, J. and Pietikainen, M. Adaptive document image

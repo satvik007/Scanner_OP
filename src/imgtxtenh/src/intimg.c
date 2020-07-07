@@ -59,156 +59,103 @@ int compII12_graym(gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2**
   return EXIT_SUCCESS;
 }
 
-int cropsum_II(II1** ii1, int xmin, int ymin, int cropW, int cropH) {
-  int xminm1 = xmin-1;
-  int yminm1 = ymin-1;
-  int xmax = xminm1+cropW;
-  int ymax = yminm1+cropH;
-
+/*
+int cropsum_II(II1** ii1, int xmin, int ymin, int xmax, int ymax) {
   II1 S1 = ii1[ymax][xmax];
-  if(yminm1>-1) {
-    S1 -= ii1[yminm1][xmax];
-    if(xminm1>-1)
-      S1 += ii1[yminm1][xminm1]-ii1[ymax][xminm1];
-  }
-  else if(xminm1>-1)
-    S1 -= ii1[ymax][xminm1];
+  S1 -= (ymin>0) ? ii1[ymin-1][xmax] : 0;
+  S1 -= (xmin>0) ? ii1[ymax][xmin-1] : 0;
+  S1 += (xmin>0 && ymin>0) ? ii1[ymin-1][xmin-1] : 0;
 
   return S1;
 }
+*/
 
-int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int cropW, int cropH, float* _mean) {
-  int xminm1 = xmin-1;
-  int yminm1 = ymin-1;
-  int xmax = xminm1+cropW;
-  int ymax = yminm1+cropH;
+/*
+int mean_II(II1** ii1, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean) {
 
   II1 S1 = ii1[ymax][xmax];
-  if(yminm1>-1) {
-    S1 -= ii1[yminm1][xmax];
-    if(xminm1>-1)
-      S1 += ii1[yminm1][xminm1]-ii1[ymax][xminm1];
-  }
-  else if(xminm1>-1)
-    S1 -= ii1[ymax][xminm1];
+  S1 -= (ymin>0) ? ii1[ymin-1][xmax] : 0;
+  S1 -= (xmin>0) ? ii1[ymax][xmin-1] : 0;
+  S1 += (xmin>0 && ymin>0) ? ii1[ymin-1][xmin-1] : 0;
 
   int numpix;
   if(cnt!=NULL) {
     numpix = cnt[ymax][xmax];
-    if(yminm1>-1) {
-      numpix -= cnt[yminm1][xmax];
-      if(xminm1>-1)
-        numpix += cnt[yminm1][xminm1]-cnt[ymax][xminm1];
-    }
-    else if(xminm1>-1)
-      numpix -= cnt[ymax][xminm1];
+    numpix -= (ymin>0) ? cnt[ymin-1][xmax] : 0;
+    numpix -= (xmin>0) ? cnt[ymax][xmin-1] : 0;
+    numpix += (xmin>0 && ymin>0) ? cnt[ymin-1][xmin-1] : 0;
+  } else {
+    numpix = (xmax-xmin+1)*(ymax-ymin+1);
   }
-  else
-    numpix = cropW*cropH;
 
   *_mean = (float)((int)S1)/((float)numpix);
 
   return EXIT_SUCCESS;
 }
+*/
 
-int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int cropW, int cropH, float* _sd) {
-  int xminm1 = xmin-1;
-  int yminm1 = ymin-1;
-  int xmax = xminm1+cropW;
-  int ymax = yminm1+cropH;
+/*
+int sd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _sd) {
 
   II1 S1 = ii1[ymax][xmax];
+  S1 -= (ymin>0) ? ii1[ymin-1][xmax] : 0;
+  S1 -= (xmin>0) ? ii1[ymax][xmin-1] : 0;
+  S1 += (xmin>0 && ymin>0) ? ii1[ymin-1][xmin-1] : 0;
   II2 S2 = ii2[ymax][xmax];
-  if(yminm1>-1) {
-    S1 -= ii1[yminm1][xmax];
-    S2 -= ii2[yminm1][xmax];
-    if(xminm1>-1) {
-      S1 += ii1[yminm1][xminm1]-ii1[ymax][xminm1];
-      S2 += ii2[yminm1][xminm1]-ii2[ymax][xminm1];
-    }
-  }
-  else if(xminm1>-1) {
-    S1 -= ii1[ymax][xminm1];
-    S2 -= ii2[ymax][xminm1];
-  }
+  S2 -= (ymin>0) ? ii2[ymin-1][xmax] : 0;
+  S2 -= (xmin>0) ? ii2[ymax][xmin-1] : 0;
+  S2 += (xmin>0 && ymin>0) ? ii2[ymin-1][xmin-1] : 0;
 
   int numpix;
   if(cnt!=NULL) {
     numpix = cnt[ymax][xmax];
-    if(yminm1>-1) {
-      numpix -= cnt[yminm1][xmax];
-      if(xminm1>-1)
-        numpix += cnt[yminm1][xminm1]-cnt[ymax][xminm1];
-    }
-    else if(xminm1>-1)
-      numpix -= cnt[ymax][xminm1];
+    numpix -= (ymin>0) ? cnt[ymin-1][xmax] : 0;
+    numpix -= (xmin>0) ? cnt[ymax][xmin-1] : 0;
+    numpix += (xmin>0 && ymin>0) ? cnt[ymin-1][xmin-1] : 0;
+  } else {
+    numpix = (xmax-xmin+1)*(ymax-ymin+1);
   }
-  else
-    numpix = cropW*cropH;
 
   float mean = (float)S1/(float)numpix;
-  if(((float)S2/(float)numpix - mean*mean) <= 0.0)
-    *_sd = 0;
-  else
-    *_sd = sqrt((float)S2/(float)numpix - mean*mean);
- 
+  *_sd = (((float)S2/(float)numpix - mean*mean) > 0.0) ? sqrt((float)S2/(float)numpix - mean*mean) : 0.0;
+
   return EXIT_SUCCESS;
 }
+*/
 
-int meanSd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int cropW, int cropH, float* _mean, float* _sd) {
-  int xminm1 = xmin-1;
-  int yminm1 = ymin-1;
-  int xmax = xminm1+cropW;
-  int ymax = yminm1+cropH;
+int meanSd_II(II1** ii1, II2** ii2, II1** cnt, int xmin, int ymin, int xmax, int ymax, float* _mean, float* _sd) {
 
   II1 S1 = ii1[ymax][xmax];
+  S1 -= (ymin>0) ? ii1[ymin-1][xmax] : 0;
+  S1 -= (xmin>0) ? ii1[ymax][xmin-1] : 0;
+  S1 += (xmin>0 && ymin>0) ? ii1[ymin-1][xmin-1] : 0;
   II2 S2 = ii2[ymax][xmax];
-  if(yminm1>-1) {
-    S1 -= ii1[yminm1][xmax];
-    S2 -= ii2[yminm1][xmax];
-    if(xminm1>-1) {
-      S1 += ii1[yminm1][xminm1]-ii1[ymax][xminm1];
-      S2 += ii2[yminm1][xminm1]-ii2[ymax][xminm1];
-    }
-  }
-  else if(xminm1>-1) {
-    S1 -= ii1[ymax][xminm1];
-    S2 -= ii2[ymax][xminm1];
-  }
+  S2 -= (ymin>0) ? ii2[ymin-1][xmax] : 0;
+  S2 -= (xmin>0) ? ii2[ymax][xmin-1] : 0;
+  S2 += (xmin>0 && ymin > 0) ? ii2[ymin-1][xmin-1] : 0;
 
   int numpix;
   if(cnt!=NULL) {
     numpix = cnt[ymax][xmax];
-    if(yminm1>-1) {
-      numpix -= cnt[yminm1][xmax];
-      if(xminm1>-1)
-        numpix += cnt[yminm1][xminm1]-cnt[ymax][xminm1];
-    }
-    else if(xminm1>-1)
-      numpix -= cnt[ymax][xminm1];
+    numpix -= (ymin>0) ? cnt[ymin-1][xmax] : 0;
+    numpix -= (xmin>0) ? cnt[ymax][xmin-1] : 0;
+    numpix += (xmin>0 && ymin>0) ? cnt[ymin-1][xmin-1] : 0;
+  } else {
+    numpix = (xmax-xmin+1)*(ymax-ymin+1);
   }
-  else
-    numpix = cropW*cropH;
 
   *_mean = (float)((int)S1)/((float)numpix);
-  if(((float)S2/(float)numpix-(*_mean)*(*_mean)) <= 0.0)
-    *_sd = 0;
-  else
-    *_sd = sqrt((float)S2/(float)numpix-(*_mean)*(*_mean));
+  *_sd = (((float)S2/(float)numpix-(*_mean)*(*_mean)) > 0.0) ? sqrt((float)S2/(float)numpix-(*_mean)*(*_mean)) : 0.0;
 
   return EXIT_SUCCESS;
 }
 
 static inline void meanSdCW_II(int x, int y, int imgW, int imgH, II1** ii1, II2** ii2, II1** cnt, int winS, float* _mean, float* _sd) {
-  int ymin = y-winS;
-  ymin = ymin<0?0:ymin;
-  int ymax = y+winS;
-  ymax = ymax>=imgH?imgH-1:ymax;
-  int xmin = x-winS;
-  xmin = xmin<0?0:xmin;
-  int xmax = x+winS;
-  xmax = xmax>=imgW?imgW-1:xmax;
-  meanSd_II(ii1,ii2,cnt,xmin,ymin,xmax-xmin+1,ymax-ymin+1,_mean,_sd);
+  int ymin = (y > winS) ? (y-winS) : 0;
+  int ymax = (y+winS < imgH) ? (y+winS) : (imgH-1);
+  int xmin = (x > winS) ? (x-winS) : 0;
+  int xmax = (x+winS < imgW) ? (x+winS) : (imgW-1);
+  meanSd_II(ii1,ii2,cnt,xmin,ymin,xmax,ymax,_mean,_sd);
 }
 
 /*int enhSauvola_pixelm(pixel** img, gray** alph, int imgW, int imgH, int winW, float prm, float slp) {
@@ -264,14 +211,14 @@ static inline void meanSdCW_II(int x, int y, int imgW, int imgH, II1** ii1, II2*
   return EXIT_SUCCESS;
 }*/
 
-static inline gray enhSauvola_single(int x, int y, gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2** ii2, II1** cnt, int winS, float prm, float slp, float rng) {
+static inline gray enhSauvola_single(int x, int y, gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2** ii2, II1** cnt, int winS, float prm, float slp, float rng, gray minv) {
 
   if(alph!=NULL && alph[y][x]==0)
     return (gray)255;
 
   float mu,sd;
   meanSdCW_II(x,y,imgW,imgH,ii1,ii2,cnt,winS,&mu,&sd);
-  float thr = mu*(1+prm*((sd/rng)-1));
+  float thr = (minv > 0) ? (1-prm)*mu+prm*minv+prm*(sd/rng)*(mu-minv) : mu*(1+prm*((sd/rng)-1));
   if(slp==0.0) {
     if(img[y][x]>thr)
       return (gray)255;
@@ -290,45 +237,7 @@ static inline gray enhSauvola_single(int x, int y, gray** img, gray** alph, int 
       int winS = (int)(W+0.5);
       float mu,sd;
       meanSdCW_II(x,y,imgW,imgH,ii1,ii2,cnt,winS,&mu,&sd);
-      float thr = mu*(1+prm*((sd/rng)-1));
-      if(sd>1e-4) {
-        float m = 255.0/(2*slp*sd);
-        float c = 128-m*thr;
-        return limit_gray(m*img[y][x]+c);
-      }
-    }
-  }
-
-  return (gray)255;
-}
-
-static inline gray enhWolf_single(int x, int y, gray** img, gray** alph, int imgW, int imgH, II1** ii1, II2** ii2, II1** cnt, int winS, float prm, float slp, float rng, gray minv) {
-
-  if(alph!=NULL && alph[y][x]==0)
-    return (gray)255;
-
-  float mu,sd;
-  meanSdCW_II(x,y,imgW,imgH,ii1,ii2,cnt,winS,&mu,&sd);
-  float thr = (1-prm)*mu+prm*minv+prm*(sd/rng)*(mu-minv);
-  if(slp==0.0) {
-    if(img[y][x]>thr)
-      return (gray)255;
-    else
-      return (gray)0;
-  }
-  else if(sd>1e-4) {
-    float m = 255.0/(2*slp*sd);
-    float c = 128-m*thr;
-    return limit_gray(m*img[y][x]+c);
-  }
-  else {
-    float fact=1.05;
-    float W;
-    for( W=fact*winS; W<2*imgW && W<2*imgH; W*=fact ) {
-      int winS = (int)(W+0.5);
-      float mu,sd;
-      meanSdCW_II(x,y,imgW,imgH,ii1,ii2,cnt,winS,&mu,&sd);
-      float thr = (1-prm)*mu+prm*minv+prm*(sd/rng)*(mu-minv);
+      float thr = (minv > 0) ? (1-prm)*mu+prm*minv+prm*(sd/rng)*(mu-minv) : mu*(1+prm*((sd/rng)-1));
       if(sd>1e-4) {
         float m = 255.0/(2*slp*sd);
         float c = 128-m*thr;
@@ -346,17 +255,17 @@ static inline void minValmaxStd(gray** img, gray** alph, int imgW, int imgH, II1
   float maxstd = 0.0;
 
   int y;
-  for ( y=imgH-1; y>=0; y-- ) {
+  for ( y=0; y<imgH; y++ ) {
     gray *imgy = img[y];
     gray *alphy = alph!=NULL ? alph[y] : NULL;
     int x;
-    for ( x=imgW-1; x>=0; x-- ) {
+    for ( x=0; x<imgW; x++ ) {
       if( alph==NULL || alphy[x]!=0 ) {
         float mu,sd;
         meanSdCW_II(x,y,imgW,imgH,ii1,ii2,cnt,winS,&mu,&sd);
-        maxstd = maxstd < sd ? sd : maxstd ;
+        maxstd = (maxstd < sd) ? sd : maxstd ;
       }
-      minval = minval > imgy[x] ? imgy[x] : minval ;
+      minval = (minval > imgy[x]) ? imgy[x] : minval ;
     }
   }
 
@@ -402,7 +311,7 @@ static inline void minValmaxStd(gray** img, gray** alph, int imgW, int imgH, II1
   return EXIT_SUCCESS;
 }*/
 
-int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float prm, float slp, int type) {
+int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float prm, float slp, int type, float coefm, float coefs) {
 
   if(*_ii1==NULL || *_ii2==NULL) {
     int err = 0;
@@ -425,24 +334,35 @@ int enhLocal_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2
 
   gray minval = 0;
   float maxstd = 128.0;
-  if ( type == ENH_SAUVOLA_SDMAX || type == ENH_WOLF )
+  if ( type == ENH_SAUVOLA_SDMAX || type == ENH_WOLF || type == ENH_GRAVURE )
     minValmaxStd(img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,&minval,&maxstd);
+  if ( type == ENH_GRAVURE ) {
+    float midval = 0.0, fullstd = 0.0;
+    meanSdCW_II(0,0,imgW,imgH,*_ii1,*_ii2,cnt,(imgW+imgH),&midval,&fullstd);
+    midval += minval;
+    midval *= 0.5;
+    minval = (gray)midval;
+    fullstd += maxstd;
+    fullstd *= 0.5;
+    maxstd = fullstd;
+  }
+
+  minval = ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX ) ? 0 : minval;
+
+  minval += coefm;
+  maxstd *= coefs;
 
   int y;
-  for(y=imgH-1;y>=0;y--) {
+  for(y=0;y<imgH;y++) {
     gray *imgy = img[y];
     int x;
-    for(x=imgW-1;x>=0;x--) {
-      if ( type == ENH_SAUVOLA || type == ENH_SAUVOLA_SDMAX )
-        imgy[x] = enhSauvola_single(x,y,img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,prm,slp,maxstd);
-      else
-        imgy[x] = enhWolf_single(x,y,img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,prm,slp,maxstd,minval);
+    for(x=0;x<imgW;x++) {
+      imgy[x] = enhSauvola_single(x,y,img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,prm,slp,maxstd,minval);
     }
   }
 
   return EXIT_SUCCESS;
 }
-
 
 int enhSauvola_sample_prm_graym(gray** img, gray** alph, int imgW, int imgH, II1*** _ii1, II2*** _ii2, II1*** _cnt, int winW, float slp, double *_prm, int subsamp, float prmthr) {
 
@@ -488,7 +408,7 @@ int enhSauvola_sample_prm_graym(gray** img, gray** alph, int imgW, int imgH, II1
       for(x=imgW-1;x>=0;x-=subsamp) {
         if(alph!=NULL && alph[y][x]==0)
           continue;
-        gray v = enhSauvola_single(x,y,img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,prm,slp,128.0);
+        gray v = enhSauvola_single(x,y,img,alph,imgW,imgH,*_ii1,*_ii2,cnt,winW,prm,slp,128.0,0);
         hist[(int)(v*histfact)]++;
         hcnt++;
       }

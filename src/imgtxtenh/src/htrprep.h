@@ -14,6 +14,6 @@
 #define RAD_TO_DEG 57.2957795130823228646
 
 int rlsa4_graym(gray** img, int imgW, int imgH, char op, int* lengths, char negate, gray** res);
-int skew_angle(gray** img,int imgW,int imgH,double amax,double astep,double* _angle,int* _hist);
+//int skew_angle(gray** img,int imgW,int imgH,double amax,double astep,double* _angle,int* _hist);
 
 #endif

@@ -22,8 +22,8 @@
 
 /*** Definitions **************************************************************/
 static char tool[] = "imgtxtenh";
-static char revnum[] = "$Revision: 248 $";
-static char revdate[] = "$Date: 2017-12-09 08:31:46 +0100 (Sat, 09 Dec 2017) $";
+static char revnum[] = "$Revision: 250 $";
+static char revdate[] = "$Date: 2019-12-09 18:00:00 +0300 (Mon, 09 Dec 2019) $";
 
 //#define __NO_PIX_UNITS__
 
@@ -40,6 +40,8 @@ int gb_enhtype = ENH_SAUVOLA;
 
 int gb_autosubsamp = 2;
 double gb_prmthr = 0.004;
+double gb_coef_m = 0.0;
+double gb_coef_s = 1.0;
 
 int gb_regstretch = FALSE;
 double gb_satu = -1;
@@ -71,7 +73,7 @@ void print_usage( FILE *file ) {
   fprintf( file, "\n" );
   fprintf( file, " -u (mm|pixels)  Units for ALL distance parameters (def.=%s)\n", gb_units );
   fprintf( file, " -d density      Specify the image density in pixels per cm (def.=%s)\n", strbool(gb_density) );
-  fprintf( file, " -t type:string  Local enhancement type: sauvola, sauvolaSdMax, wolf (def.=sauvola)\n" );
+  fprintf( file, " -t type:string  Local enhancement type: sauvola, sauvolaSdMax, wolf, gravure (def.=sauvola)\n" );
   fprintf( file, " -w width:float  Window width for local enhancement (def.=%gpx|%gmm)\n", gb_winW_px, gb_winW_mm );
   fprintf( file, " -k mfct:float   Local enhancement mean threshold factor (def.=%g)\n", gb_prm );
   //fprintf( file, " -K subs,thr     Automatically select mfct, use -K - for default %d,%g (def.=%s)\n", gb_autosubsamp, gb_prmthr, strbool(gb_autoprm) );
@@ -88,6 +90,9 @@ void print_usage( FILE *file ) {
   fprintf( file, " -r small:float  Area limit for small component removal (def.=%gpx^2|%gmm^2)\n", gb_small_px, gb_small_mm );
   fprintf( file, " -R lengths      Protect faint strokes by 4-directional RLSA: '-', '|', '/' and '\\' (def.=%g,%g,%g,%gpx|%g,%g,%g,%gmm|)\n", gb_rlsa_px[0], gb_rlsa_px[1], gb_rlsa_px[2], gb_rlsa_px[3], gb_rlsa_mm[0], gb_rlsa_mm[1], gb_rlsa_mm[2], gb_rlsa_mm[3] );
   fprintf( file, "                 lengths are 1 to 4 floats separated by commas\n" );
+
+  fprintf( file, " -x mplus:float  Coefficient a of the threshold equation: t=(M+a)+b*S (def.=%g)\n", gb_coef_m);
+  fprintf( file, " -y sscale:float Coefficient b of the threshold equation: t=(M+a)+b*S (def.=%g)\n", gb_coef_s);
 
   fprintf( file, " -p              Save images %s_*.png of processing steps (def.=%s)\n", tool, strbool(gb_procimgs) );
   fprintf( file, " -l lfile        Logging to 'lfile' (def.=stderr)\n" );
@@ -115,7 +120,7 @@ int main( int argc, char *argv[] ) {
     return SUCCESS;
   }
 
-  char *optstr = "u:d:t:w:k:K:s:S:AM:e:P:Nar:R:pl:V:hv";
+  char *optstr = "u:d:t:w:k:K:s:S:AM:e:P:Nar:R:x:y:pl:V:hv";
   while( getopt(argc,argv,optstr) != -1 );
   int nopts = optind;
   optind = 1;
@@ -147,6 +152,8 @@ int main( int argc, char *argv[] ) {
         gb_enhtype = ENH_SAUVOLA_SDMAX;
       else if ( ! strcmp(optarg,"wolf") )
         gb_enhtype = ENH_WOLF;
+      else if ( ! strcmp(optarg,"gravure") )
+        gb_enhtype = ENH_GRAVURE;
       else {
         logger( 0, "error: incorrect input argument (-%c %s)", n, optarg );
         print_usage( logfile );
@@ -229,6 +236,12 @@ int main( int argc, char *argv[] ) {
           p = p == NULL ? p : p+1 ;
         } while( p != NULL );
       }
+      break;
+    case 'x':
+      gb_coef_m = atof(optarg);
+      break;
+    case 'y':
+      gb_coef_s = atof(optarg);
       break;
     case 'p':
       gb_procimgs = !gb_procimgs;
@@ -514,7 +527,7 @@ int main( int argc, char *argv[] ) {
 
   logger( 1, "enhancing by Sauvola: width=%.0fpixels, mfct=%g%s, sfct=%g", gb_winW_px, gb_prm, gb_autoprm?"(auto)":"", gb_slp );
   //enhSauvola_graym( gimg, msk, img->width, img->height, &ii1, &ii2, &cnt, gb_winW_px, gb_prm, gb_slp );
-  enhLocal_graym( gimg, msk, img->width, img->height, &ii1, &ii2, &cnt, gb_winW_px, gb_prm, gb_slp, gb_enhtype );
+  enhLocal_graym( gimg, msk, img->width, img->height, &ii1, &ii2, &cnt, gb_winW_px, gb_prm, gb_slp, gb_enhtype, gb_coef_m, gb_coef_s );
 
   time_end = 1000.0*((double)clock()-time_ini)/((double)CLOCKS_PER_SEC);
   logger( 4, "time: enhancement (ms): %g", time_end );

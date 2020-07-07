@@ -12,10 +12,10 @@
 
 #define bcalloc_intm(R,C,B,M) bmem((R),(C),sizeof(int),1,(B),(char***)(M))
 
-int objlabel4(gray** img,int imgW,int imgH,int** out,int* _obj);
+//int objlabel4(gray** img,int imgW,int imgH,int** out,int* _obj);
 int objlabel8(gray** img,int imgW,int imgH,int** out,int* _obj);
 int objinfo(int** img,int imgW,int imgH,int obj,int** bbox,int* area,float** cent);
-int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH);
+//int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH);
 //void objarea(int** img,int imgW,int imgH,int obj,int* _area);
 //void objperim(int** img,int imgW,int imgH,int obj,int* _perim);
 //void objcompactness(int** img,int imgW,int imgH,int obj,double* _comp);

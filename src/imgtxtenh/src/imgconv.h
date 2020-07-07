@@ -12,12 +12,12 @@
 
 #include <stdio.h>
 
-int fscan_floatv(FILE* file,float* vec,int maxD,FILE* mess);
+//int fscan_floatv(FILE* file,float* vec,int maxD,FILE* mess);
 void stretch_graym(gray **img, gray **alph, int imgW, int imgH, float satu);
 int regstretch_graym( gray **img, gray **reg, int imgW, int imgH, float satu );
 int rgbm2graym_proj(pixel** img, int imgW, int imgH, gray** out, float* base, int D, int hsv);
 int rgbm2graym_proj_stretch(pixel** img, int imgW, int imgH, gray** out, float* base, int D, float satu, int hsv);
-int rgbm2graym_stretch(pixel** img, int imgW, int imgH, gray** out, float satu);
+//int rgbm2graym_stretch(pixel** img, int imgW, int imgH, gray** out, float satu);
 void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v );
 
 #endif

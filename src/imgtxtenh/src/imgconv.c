@@ -7,9 +7,15 @@
 
 #include "imgconv.h"
 
+#define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
+#define MAX2( A, B )   ( (A)>(B) ? (A) : (B) )
+#define MIN3( A, B, C ) ( (A) < (B) ? MIN2(A, C) : MIN2(B, C) )
+#define MAX3( A, B, C ) ( (A) > (B) ? MAX2(A, C) : MAX2(B, C) )
+
 #include <stdlib.h>
 //#include <math.h>
 
+/*
 int fscan_floatv(FILE* file,float* vec,int maxD,FILE* mess) {
   int err=0, d=0, ch=0;
   char cval[32];
@@ -54,13 +60,14 @@ int fscan_floatv(FILE* file,float* vec,int maxD,FILE* mess) {
 
   return d;
 }
+*/
 
 static inline int hist_graym(gray **img, gray **alph, int imgW, int imgH, int *hist) {
   int n;
-  for(n=255;n>=0;n--)
+  for(n=0;n<256;n++)
     hist[n] = 0;
   int cnt = 0;
-  for(n=imgW*imgH-1;n>=0;n--)
+  for(n=0; n<imgW*imgH; n++)
     if(alph==NULL || alph[0][n]!=0) {
       hist[img[0][n]]++;
       cnt++;
@@ -76,14 +83,14 @@ void stretch_graym(gray **img, gray **alph, int imgW, int imgH, float satu) {
 
   int min;
   cnt = hist[0];
-  for(min=0,cnt=0;min<=255;min++) {
+  for(min=0,cnt=0; min<256; min++) {
     cnt += hist[min];
     if(cnt>thr)
       break;
   }
   int max;
   cnt = hist[255];
-  for(max=255,cnt=0;max>=0;max--) {
+  for(max=255,cnt=0; max>=0; max--) {
     cnt += hist[max];
     if(cnt>thr)
       break;
@@ -91,7 +98,7 @@ void stretch_graym(gray **img, gray **alph, int imgW, int imgH, float satu) {
 
   double fact = 255.0/(max-min);
   int n;
-  for(n=imgW*imgH-1;n>=0;n--)
+  for(n=0; n<imgW*imgH; n++)
     if( alph==NULL || alph[0][n]!=0 )
       img[0][n] = limit_gray( fact*(img[0][n]-min)+0.5 );
 }
@@ -107,7 +114,7 @@ int regstretch_graym( gray **img, gray **reg, int imgW, int imgH, float satu ) {
   int *min = cnt+256;
 
   int n;
-  for( n=imgW*imgH-1; n>=0; n-- ) {
+  for( n=0; n<imgW*imgH; n++ ) {
     hist[reg[0][n]][img[0][n]] ++;
     cnt[reg[0][n]] ++;
   }
@@ -118,7 +125,7 @@ int regstretch_graym( gray **img, gray **reg, int imgW, int imgH, float satu ) {
       int thr = satu*cnt[n]+0.5 ;
       thr = thr==0 ? 1 : thr ;
 
-      for( min[n]=0,sum=0; min[n]<=255; min[n]++ ) {
+      for( min[n]=0,sum=0; min[n]<256; min[n]++ ) {
         sum += hist[n][min[n]];
         if( sum > thr )
           break;
@@ -132,7 +139,7 @@ int regstretch_graym( gray **img, gray **reg, int imgW, int imgH, float satu ) {
       fact[n] = max > min[n] ? 255.0/(max-min[n]) : 1.0 ;
     }
 
-  for( n=imgW*imgH-1; n>=0; n-- ) {
+  for( n=0; n<imgW*imgH; n++ ) {
     int r = reg[0][n];
     img[0][n] = limit_gray( fact[r]*(img[0][n]-min[r])+0.5 );
   }
@@ -209,7 +216,7 @@ int rgbm2graym_proj(pixel** img, int imgW, int imgH, gray** out, float* base, in
   float pv;
   switch(D) {
   case 3:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -227,7 +234,7 @@ int rgbm2graym_proj(pixel** img, int imgW, int imgH, gray** out, float* base, in
     }
     break;
   case 9:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -249,7 +256,7 @@ int rgbm2graym_proj(pixel** img, int imgW, int imgH, gray** out, float* base, in
     }
     break;
   case 13:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -308,7 +315,7 @@ int rgbm2graym_proj_stretch(pixel** img, int imgW, int imgH, gray** out, float* 
   int n;
   switch(D) {
   case 3:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -322,7 +329,7 @@ int rgbm2graym_proj_stretch(pixel** img, int imgW, int imgH, gray** out, float* 
     }
     break;
   case 9:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -340,7 +347,7 @@ int rgbm2graym_proj_stretch(pixel** img, int imgW, int imgH, gray** out, float* 
     }
     break;
   case 13:
-    for(n=imgW*imgH-1;n>=0;n--) {
+    for(n=0; n<imgW*imgH; n++) {
       pixel p = imgv[n];
       if(hsv) {
         float h,s,v;
@@ -389,16 +396,12 @@ int rgbm2graym_proj_stretch(pixel** img, int imgW, int imgH, gray** out, float* 
   return EXIT_SUCCESS;
 }
 
+/*
 int rgbm2graym_stretch(pixel** img, int imgW, int imgH, gray** out, float satu) {
   float base[3] = {0.299,0.587,0.114};
   return rgbm2graym_proj_stretch(img,imgW,imgH,out,base,3,satu,0);
 }
-
-
-#define MIN2( A, B )   ( (A)<(B) ? (A) : (B) )
-#define MAX2( A, B )   ( (A)>(B) ? (A) : (B) )
-#define MIN3( A, B, C ) ( (A) < (B) ? MIN2(A, C) : MIN2(B, C) )
-#define MAX3( A, B, C ) ( (A) > (B) ? MAX2(A, C) : MAX2(B, C) )
+*/
 
 // r,g,b,h,s,v = [0,1]
 void RGBtoHSV( float r, float g, float b, float *h, float *s, float *v ) {

@@ -28,6 +28,7 @@ static inline void MERGE(int *mfset,int neighbor1,int neighbor2) {
     mfset[n1] = n2;
 }
 
+/*
 int objlabel4(gray** img,int imgW,int imgH,int** out,int* _obj)
 {
   int i,j,n=0,obj=0;
@@ -77,6 +78,7 @@ int objlabel4(gray** img,int imgW,int imgH,int** out,int* _obj)
   bfree(tmp,1);
   return EXIT_SUCCESS;
 }
+*/
 
 int objlabel8(gray** img,int imgW,int imgH,int** out,int* _obj)
 {
@@ -189,8 +191,7 @@ int objinfo(int** img,int imgW,int imgH,int obj,int** bbox,int* area,float** cen
   return EXIT_SUCCESS;
 }
 
-
-
+/*
 int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
   int n, x, y, *meanW=NULL, *meanH=NULL;
 
@@ -258,10 +259,10 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
 
   return EXIT_SUCCESS;
 }
+*/
 
-
-
-/*int objmodeWH(int** img,int imgW,int imgH,int obj,int** modeWH) {
+/*
+int objmodeWH(int** img,int imgW,int imgH,int obj,int** modeWH) {
   int n, x, y, *modeW=NULL, *modeH=NULL;
 
   fprintf(stderr,"error: this function is not working\n");
@@ -345,13 +346,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
   free(mn);
 
   return EXIT_SUCCESS;
-}*/
+}
+*/
 
-
-
-
-
-/*void objarea(int** img,int imgW,int imgH,int obj,int* _area)
+/*
+void objarea(int** img,int imgW,int imgH,int obj,int* _area)
 {
   int i,j,a=0;
 
@@ -361,9 +360,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
         a++;
 
   *_area=a;
-}*/
+}
+*/
 
-/*void objperim(int** img,int imgW,int imgH,int obj,int* _perim)
+/*
+void objperim(int** img,int imgW,int imgH,int obj,int* _perim)
 {
   int i,j,p=0;
 
@@ -386,9 +387,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
           p++;
 
   *_perim=p;
-}*/
+}
+*/
 
-/*void objcompactness(int** img,int imgW,int imgH,int obj,double* _comp)
+/*
+void objcompactness(int** img,int imgW,int imgH,int obj,double* _comp)
 {
   int a,p;
 
@@ -396,9 +399,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
   objperim(img,imgW,imgH,obj,&p);
 
   *_comp=(double)a/(p*p);
-}*/
+}
+*/
 
-/*int objbbox(int** img,int imgW,int imgH,int obj,int* _minX,int* _maxX,int* _minY,int* _maxY)
+/*
+int objbbox(int** img,int imgW,int imgH,int obj,int* _minX,int* _maxX,int* _minY,int* _maxY)
 {
   int i,j,minX=0,minY=0,maxX=imgW-1,maxY=imgH-1;
 
@@ -440,9 +445,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
   *_maxX=maxX;
 
   return EXIT_SUCCESS;
-}*/
+}
+*/
 
-/*void objcentroid(int** img,int imgW,int imgH,int obj,double* _cX,double* _cY)
+/*
+void objcentroid(int** img,int imgW,int imgH,int obj,double* _cX,double* _cY)
 {
   int i,j,a=0,cX=0,cY=0;
 
@@ -456,9 +463,11 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
 
   *_cY=(double)cY/a;
   *_cX=(double)cX/a;
-}*/
+}
+*/
 
-/*void objorient(int** img,int imgW,int imgH,int obj,double* _orient)
+/*
+void objorient(int** img,int imgW,int imgH,int obj,double* _orient)
 {
   int i,j;
   double cX,cY,mu11=0.0,mu20=0.0,mu02=0.0;
@@ -474,4 +483,5 @@ int objmeanWH(int** img,int imgW,int imgH,int obj,int** meanWH) {
       }
 
   *_orient=0.5*atan(2*mu11/(mu20-mu02));
-}*/
+}
+*/

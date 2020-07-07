@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/satvik/codes/imgtxtenh
+CMAKE_SOURCE_DIR = /home/satvik/codes/Scanner_OP/src/imgtxtenh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/satvik/codes/imgtxtenh/build
+CMAKE_BINARY_DIR = /home/satvik/codes/Scanner_OP/src/imgtxtenh/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/imgtxtenh.dir/depend.make
@@ -59,107 +59,107 @@ include CMakeFiles/imgtxtenh.dir/flags.make
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/htrprep.c.o: ../src/htrprep.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/imgtxtenh.dir/src/htrprep.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/htrprep.c.o   -c /home/satvik/codes/imgtxtenh/src/htrprep.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/imgtxtenh.dir/src/htrprep.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/htrprep.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/htrprep.c
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/htrprep.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/htrprep.c > CMakeFiles/imgtxtenh.dir/src/htrprep.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/htrprep.c > CMakeFiles/imgtxtenh.dir/src/htrprep.c.i
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/htrprep.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/htrprep.c -o CMakeFiles/imgtxtenh.dir/src/htrprep.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/htrprep.c -o CMakeFiles/imgtxtenh.dir/src/htrprep.c.s
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/imgconv.c.o: ../src/imgconv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/imgtxtenh.dir/src/imgconv.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgconv.c.o   -c /home/satvik/codes/imgtxtenh/src/imgconv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/imgtxtenh.dir/src/imgconv.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgconv.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgconv.c
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/imgconv.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/imgconv.c > CMakeFiles/imgtxtenh.dir/src/imgconv.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgconv.c > CMakeFiles/imgtxtenh.dir/src/imgconv.c.i
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/imgconv.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/imgconv.c -o CMakeFiles/imgtxtenh.dir/src/imgconv.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgconv.c -o CMakeFiles/imgtxtenh.dir/src/imgconv.c.s
 
 CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o: ../src/imgio_magick.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o   -c /home/satvik/codes/imgtxtenh/src/imgio_magick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgio_magick.c
 
 CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/imgio_magick.c > CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgio_magick.c > CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.i
 
 CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/imgio_magick.c -o CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgio_magick.c -o CMakeFiles/imgtxtenh.dir/src/imgio_magick.c.s
 
 CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o: ../src/imgtxtenh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o   -c /home/satvik/codes/imgtxtenh/src/imgtxtenh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgtxtenh.c
 
 CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/imgtxtenh.c > CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgtxtenh.c > CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.i
 
 CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/imgtxtenh.c -o CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/imgtxtenh.c -o CMakeFiles/imgtxtenh.dir/src/imgtxtenh.c.s
 
 CMakeFiles/imgtxtenh.dir/src/intimg.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/intimg.c.o: ../src/intimg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/imgtxtenh.dir/src/intimg.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/intimg.c.o   -c /home/satvik/codes/imgtxtenh/src/intimg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/imgtxtenh.dir/src/intimg.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/intimg.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/intimg.c
 
 CMakeFiles/imgtxtenh.dir/src/intimg.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/intimg.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/intimg.c > CMakeFiles/imgtxtenh.dir/src/intimg.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/intimg.c > CMakeFiles/imgtxtenh.dir/src/intimg.c.i
 
 CMakeFiles/imgtxtenh.dir/src/intimg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/intimg.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/intimg.c -o CMakeFiles/imgtxtenh.dir/src/intimg.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/intimg.c -o CMakeFiles/imgtxtenh.dir/src/intimg.c.s
 
 CMakeFiles/imgtxtenh.dir/src/log.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/log.c.o: ../src/log.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/imgtxtenh.dir/src/log.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/log.c.o   -c /home/satvik/codes/imgtxtenh/src/log.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/imgtxtenh.dir/src/log.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/log.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/log.c
 
 CMakeFiles/imgtxtenh.dir/src/log.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/log.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/log.c > CMakeFiles/imgtxtenh.dir/src/log.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/log.c > CMakeFiles/imgtxtenh.dir/src/log.c.i
 
 CMakeFiles/imgtxtenh.dir/src/log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/log.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/log.c -o CMakeFiles/imgtxtenh.dir/src/log.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/log.c -o CMakeFiles/imgtxtenh.dir/src/log.c.s
 
 CMakeFiles/imgtxtenh.dir/src/mem.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/mem.c.o: ../src/mem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/imgtxtenh.dir/src/mem.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/mem.c.o   -c /home/satvik/codes/imgtxtenh/src/mem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/imgtxtenh.dir/src/mem.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/mem.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/mem.c
 
 CMakeFiles/imgtxtenh.dir/src/mem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/mem.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/mem.c > CMakeFiles/imgtxtenh.dir/src/mem.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/mem.c > CMakeFiles/imgtxtenh.dir/src/mem.c.i
 
 CMakeFiles/imgtxtenh.dir/src/mem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/mem.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/mem.c -o CMakeFiles/imgtxtenh.dir/src/mem.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/mem.c -o CMakeFiles/imgtxtenh.dir/src/mem.c.s
 
 CMakeFiles/imgtxtenh.dir/src/objs.c.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/objs.c.o: ../src/objs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/imgtxtenh.dir/src/objs.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/objs.c.o   -c /home/satvik/codes/imgtxtenh/src/objs.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/imgtxtenh.dir/src/objs.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/objs.c.o   -c /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/objs.c
 
 CMakeFiles/imgtxtenh.dir/src/objs.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/imgtxtenh.dir/src/objs.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/imgtxtenh/src/objs.c > CMakeFiles/imgtxtenh.dir/src/objs.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/objs.c > CMakeFiles/imgtxtenh.dir/src/objs.c.i
 
 CMakeFiles/imgtxtenh.dir/src/objs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/imgtxtenh.dir/src/objs.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/imgtxtenh/src/objs.c -o CMakeFiles/imgtxtenh.dir/src/objs.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/satvik/codes/Scanner_OP/src/imgtxtenh/src/objs.c -o CMakeFiles/imgtxtenh.dir/src/objs.c.s
 
 # Object files for target imgtxtenh
 imgtxtenh_OBJECTS = \
@@ -185,7 +185,7 @@ imgtxtenh: CMakeFiles/imgtxtenh.dir/src/mem.c.o
 imgtxtenh: CMakeFiles/imgtxtenh.dir/src/objs.c.o
 imgtxtenh: CMakeFiles/imgtxtenh.dir/build.make
 imgtxtenh: CMakeFiles/imgtxtenh.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable imgtxtenh"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable imgtxtenh"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgtxtenh.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -198,6 +198,6 @@ CMakeFiles/imgtxtenh.dir/clean:
 .PHONY : CMakeFiles/imgtxtenh.dir/clean
 
 CMakeFiles/imgtxtenh.dir/depend:
-	cd /home/satvik/codes/imgtxtenh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build/CMakeFiles/imgtxtenh.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/satvik/codes/Scanner_OP/src/imgtxtenh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/Scanner_OP/src/imgtxtenh /home/satvik/codes/Scanner_OP/src/imgtxtenh /home/satvik/codes/Scanner_OP/src/imgtxtenh/build /home/satvik/codes/Scanner_OP/src/imgtxtenh/build /home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/imgtxtenh.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/imgtxtenh.dir/depend
 

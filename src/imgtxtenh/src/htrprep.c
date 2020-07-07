@@ -5,18 +5,16 @@
  * @copyright Copyright (c) 2004 to the present, Mauricio Villegas <mauvilsa@upv.es>
  */
 
-#include "htrprep.h"
-
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
-
+#include "htrprep.h"
 
 int rlsa4_graym(gray** img, int imgW, int imgH, char op, int* lengths, char negate, gray** res) {
   int n;
   if( negate )
-    for( n=imgW*imgH-1; n>=0; n-- )
+    for( n=0; n<imgW*imgH; n++ )
       img[0][n] = 255-img[0][n];
 
   gray **freeimg = NULL;
@@ -180,6 +178,7 @@ void histogram(double* vec,int D,int bins,int* hist)
     hist[(int)((vec[d]-min)*max+0.5)]++;
 }
 
+/*
 int skew_angle(gray** img,int imgW,int imgH,double amax,double astep,double* _angle,int* _hist)
 {
   int i,j,n,N,m,M;
@@ -263,3 +262,4 @@ int skew_angle(gray** img,int imgW,int imgH,double amax,double astep,double* _an
 
   return EXIT_SUCCESS;
 }
+*/

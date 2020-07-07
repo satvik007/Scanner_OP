@@ -1,7 +1,7 @@
 cmake_minimum_required( VERSION 2.8.4 )
 project( imgtxtenh )
 set( pname imgtxtenh )
-set( pversion "0.0.248" )
+set( pversion "0.0.250" )
 set( tool_EXE ${pname} )
 include( FindPkgConfig )
 pkg_check_modules( MagickCore REQUIRED MagickCore>=6.7.7 )

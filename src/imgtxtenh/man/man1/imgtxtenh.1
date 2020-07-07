@@ -1,4 +1,4 @@
-.TH "ImgTxtEnh User Manual" 1 "0.0.248" "ImgTxtEn documentation"
+.TH "ImgTxtEnh User Manual" 1 "0.0.250" "ImgTxtEn documentation"
 .SH NAME
 imgtxtenh
 .SH DESCRIPTION
@@ -14,7 +14,7 @@ Units for ALL distance parameters (def.=pixels)
 Specify the image density in pixels per cm (def.=false)
 .TP
 -t type:string
-Local enhancement type: sauvola, sauvolaSdMax, wolf (def.=sauvola)
+Local enhancement type: sauvola, sauvolaSdMax, wolf, gravure (def.=sauvola)
 .TP
 -w width:float
 Window width for local enhancement (def.=80px|10mm)
@@ -48,6 +48,12 @@ Area limit for small component removal (def.=6px^2|0.16mm^2)
 .TP
 -R lengths
 Protect faint strokes by 4-directional RLSA: '-', '|', '/' and '\' (def.=2.4,2.4,2.4,2.4px|0.4,0.4,0.4,0.4mm|) lengths are 1 to 4 floats separated by commas
+.TP
+-x mplus:float
+Coefficient a of the threshold equation: t=(M+a)+b*S (def.=0)
+.TP
+-y sscale:float
+Coefficient b of the threshold equation: t=(M+a)+b*S (def.=1)
 .TP
 -p
 Save images imgtxtenh_*.png of processing steps (def.=false)
