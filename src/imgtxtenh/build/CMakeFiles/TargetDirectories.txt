@@ -1,0 +1,8 @@
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/install/strip.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/install/local.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/install.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/list_install_components.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/rebuild_cache.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/edit_cache.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/realclean.dir
+/home/satvik/codes/Scanner_OP/src/imgtxtenh/build/CMakeFiles/imgtxtenh.dir

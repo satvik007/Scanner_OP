@@ -1,0 +1,12 @@
+Medium Resources Link:
+
+1. https://medium.com/@tarkus/how-to-call-c-c-code-from-node-js-86a773033892
+2. https://medium.com/@a7ul/beginners-guide-to-writing-nodejs-addons-using-c-and-n-api-node-addon-api-9b3b718a9a7f
+3. https://medium.com/jspoint/a-simple-guide-to-load-c-c-code-into-node-js-javascript-applications-3fcccf54fd32
+
+
+For using C++ library/code in Node js application. Native addon can be used.
+Native Addon is compiled from c and c++ and then the compiled file can be imported as a javascript file using require.
+
+For More clarity on how to use native addon.
+I will take a c++ program which takes an image apply opencv function to the image and return the processed image. I will use this program in a node js application and send a image to the c++ program and get the result image in node application.
