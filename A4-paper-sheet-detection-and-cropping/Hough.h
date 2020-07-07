@@ -52,6 +52,8 @@ private:
 	
 	float x1, y1, x2, y2, x3, y3, x4, y4; // source corners
 
+	bool ERROR = false;                   //if some error occurs;
+
 	int w, h; // width and height of rgb image
 	CImg<float> gradients;
 	CImg<float> hough_space;
@@ -77,6 +79,7 @@ public:
 	Hough(char * filePath);
 	CImg<float> getRGBImg() { return rgb_img; }
 	CImg<float> getMarkedImg() { return marked_img; }
+	bool getError () {return ERROR;}
 	std::vector<Point> getOrderedCorners() { return ordered_corners;}
 };
 
