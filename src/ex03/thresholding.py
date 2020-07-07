@@ -1,5 +1,6 @@
 import cv2, numpy as np
 import sys
+# import vector
 
 def apply_brightness_contrast(input_img, brightness = 0, contrast = 0):
 
@@ -57,6 +58,18 @@ if __name__ == '__main__':
     # equalizeHist(channels[0], channels[0])
     # merge(channels,img_hist_equalized)
     # cvtColor(img_hist_equalized, img_hist_equalized, CV_YCrCb2BGR)
+
+    # dst.convertTo(dst, -1, 2, 0)    
+    # vector<Mat> channels
+    # mat = cv.CreateMat(1, 1, CvType.CV_8U)
+    # Mat img_hist_equalized
+    # cvtColor(orig, img_hist_equalized, CV_BGR2YCrCb)
+    # split(img_hist_equalized,channels)
+    # equalizeHist(channels[0], channels[0])
+    # merge(channels,img_hist_equalized)
+    # cvtColor(img_hist_equalized, img_hist_equalized, CV_YCrCb2BGR)
+    # cv2.imshow('img_hist_equalized', img_hist_equalized)
+    # cv2.waitKey(0)
     # --------------------------- #
 
     cv2.imshow('orig', orig)
