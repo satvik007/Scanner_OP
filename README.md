@@ -36,8 +36,19 @@
   - Adaptive Threshold
   - fastNlMeansDenoising
 - https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios in file filter.cpp yields very promising results. There is an unimplemented part related to no text found in the image. 
-- Will try Flat field correction and other techniques.
+- Will try Flat field correction and other techniques. - doesn't work so well, tried it.
+- Best version till now on non white b.g. is to simply multiply the image by 1.5 (and optionally subtract 10, somehow this lead to more noise), basically increase contrast.
 - Still in progress
+  
+## 5. &nbsp; bwfilter
+- (Would welcome the owner to fill it)
+
+## 6. &nbsp; imgtxtenh
+- https://github.com/mauvilsa/imgtxtenh
+- go to build and run with ```./imgtxtenh -t wolf input_path output_path```
+- See the man folder for more details on available options.
+
+
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
 - https://hypjudy.github.io/2017/03/28/cvpr-A4-paper-sheet-detection-and-cropping/
@@ -54,10 +65,6 @@
 - http://www.recogniform.net/eng/how-to-enhance-scanned-documents.html
 - http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Jyotirmoy09Contextual.pdf
 - https://ieeexplore.ieee.org/document/7881431
-- https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios
-- https://stackoverflow.com/questions/9152803/
-- See ex01 for a good threshold_filter.
-- https://github.com/mauvilsa/imgtxtenh
 - Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya. Added book in Resources. (Who's going to read this. LOL)
 
 ## OCR Resources ##
@@ -66,6 +73,7 @@
 - https://dropbox.tech/machine-learning/creating-a-modern-ocr-pipeline-using-computer-vision-and-deep-learning
 - https://docparser.com/blog/improve-ocr-accuracy/
 - https://stackoverflow.com/questions/23506105/extracting-text-opencv?rq=1
+- https://stackoverflow.com/questions/9152803/
  
 ## Discussion ##
 - Please see the resources folder for the last 2 papers.
