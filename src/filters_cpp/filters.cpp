@@ -103,18 +103,21 @@ void _unsharp_mask (cv::Mat &src, cv::Mat &dst, cv::Size kernel_size=cv::Size(5,
  * Constant multiplies by image to increase contrast, type double (default=1.5)
  * 
  * @param beta
- * Constant subtracted from the result of multiplying. (default=0)
+ * Constant subtracted from the result of multiplying, type int (default=0)
  * 
- * @param brightness
- * This will increase brightness, will make the paper look clear white and reduce noise
- * but can lead to loss of information
- * type int (default=30) 
+ * @param threshold
+ * For pixels with very low values, get the original value back if its less than threshold. 
+ * Type int (default=0)
 */
-void magic_filter (cv::Mat &src, cv::Mat &dst, const double alpha, const int beta) {
+void magic_filter (cv::Mat &src, cv::Mat &dst, const double alpha, const int beta, const int threshold) {
     // apply sharpness filter
     _unsharp_mask (src, dst);
     // increase contrast
     src.convertTo (dst, -1, alpha, beta);
+    if (threshold > 0) {
+        cv::Mat mask = src < threshold;
+        src.copyTo (dst, mask);
+    }
 };
 
 /**This code implements sepia, a popular filter from instagram.
@@ -157,8 +160,8 @@ void gray_filter (cv::Mat &src, cv::Mat &dst) {
  * @param dst
  * Destination image of type cv::Mat
 */ 
-void sharpen_filter (cv::Mat &src, cv::Mat &dst) {
-    _unsharp_mask (src, dst);
+void sharpen_filter (cv::Mat &src, cv::Mat &dst, cv::Size kernel_size, const double sigma, const double amount, const int threshold) {
+    _unsharp_mask (src, dst, kernel_size, sigma, amount, threshold);
 };
 
 #endif
