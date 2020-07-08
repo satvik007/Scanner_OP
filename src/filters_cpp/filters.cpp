@@ -1,11 +1,11 @@
 /**
  * This document is part of the project ScanIN. See License for more details.
  * This is implementation of all the filters of the app, it contains the following filters
- *  - Magic filter
+ *  - Magic
  *  - Sepia
  *  - Lighten
  *  - Gray 
- *  - Black/White
+ *  - Sharpen
  * Author     : Satvik Choudhary
  * Created on : 8 July 2020
 */
@@ -147,6 +147,7 @@ void lighten_filter (cv::Mat &src, cv::Mat &dst) {
 
 void gray_filter (cv::Mat &src, cv::Mat &dst) {
     // To be handled after refactoring imgtxtenh
+
 };
 
 /**This code implements sharpen filter, which applies the _unsharp_mask to make the image sharper

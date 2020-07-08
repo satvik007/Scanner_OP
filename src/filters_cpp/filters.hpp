@@ -1,11 +1,11 @@
 /**
  * This document is part of the project ScanIN. See License for more details.
  * This is implementation of all the filters of the app, it contains the following filters
- *  - Magic filter
+ *  - Magic
  *  - Sepia
  *  - Lighten
  *  - Gray 
- *  - Black/White
+ *  - Sharpen
  * Author     : Satvik Choudhary
  * Created on : 8 July 2020
 */
