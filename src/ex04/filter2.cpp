@@ -145,7 +145,7 @@ int applyOldMagicFilter (cv::Mat &input, cv::Mat &dst) {
 
 
 int main(int argc, char *argv[]) {
-    string fileName = "../../data/img_16.jpg";
+    string fileName = "../../data/img_33.jpg";
     string outName = "images/filtered2.jpg";
     if (argc >= 2) {
         fileName = string (argv[1]);
@@ -157,15 +157,15 @@ int main(int argc, char *argv[]) {
     // reduce dim for speed.
     resize_image (input, 1536);
     cv::Mat dst;
-    // applyOldMagicFilter (input, dst);
-    _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 1);
-    namedWindow ("mask1", WINDOW_AUTOSIZE);
-    imshow ("mask1", dst);
-    waitKey(0);
-    _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 20);
-    namedWindow ("mask2", WINDOW_AUTOSIZE);
-    imshow ("mask2", dst);
-    waitKey(0);
+    applyOldMagicFilter (input, dst);
+    // _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 1);
+    // namedWindow ("mask1", WINDOW_AUTOSIZE);
+    // imshow ("mask1", dst);
+    // waitKey(0);
+    // _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 20);
+    // namedWindow ("mask2", WINDOW_AUTOSIZE);
+    // imshow ("mask2", dst);
+    // waitKey(0);
 
     imwrite (outName, dst);
 }
