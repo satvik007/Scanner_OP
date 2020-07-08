@@ -6,12 +6,10 @@ https://stackoverflow.com/questions/49997681/scanned-document-text-background-cl
 */
 #include <bits/stdc++.h>
 #include <opencv/cv.hpp>
-#include <opencv/highgui.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
-#include "opencv2/videoio.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/imgcodecs.hpp"
 #include "opencv2/highgui.hpp"
@@ -43,22 +41,40 @@ std::vector<cv::Rect> detectLetters(cv::Mat img)
     return boundRect;
 }
 
-void resize_image (cv::Mat &input, const int dim) {
+void resize_image (cv::Mat &input, const int dim=1536) {
     int maxdim = input.cols; //std::max(input.rows,input.cols);
     //const int dim = 1536;
     if ( maxdim > dim )
     {
         double scale = (double)dim/(double)maxdim;
         cv::Mat t;
-        cv::resize( input, t, cv::Size(), scale,scale );
+        cv::resize( input, t, cv::Size(), scale, scale );
         input = t;
     }
 }
 
-int applyMagicFilter (cv::Mat &input, cv::Mat &dst) {
-    // reduce dim for speed.
-    resize_image (input, 1536);
+void _unsharp_mask (cv::Mat &src, cv::Mat &dst, cv::Size kernel_size=cv::Size(5, 5), const double sigma=1.0, const double amount=1.0, const int threshold=0) {
+    cv::Mat blur;
+    cv::GaussianBlur (src, blur, kernel_size, sigma);
+    // dst = src * (amount + 1.0)
+    src.convertTo (dst, CV_64FC3, amount + 1.0, 0);
+    cv::Mat temp;
+    // temp = blur * (amount)
+    blur.convertTo (temp, CV_64FC3, amount, 0);
+    // dst = src * (amount + 1.0) - blur * (amount)
+    cv::subtract (dst, temp, dst, cv::noArray(), -1);
+    dst.convertTo (dst, CV_8UC3);
+    if (threshold > 0) {
+        cv::Mat low_contrast_mask;
+        // temp = abs(src - blur)
+        cv::absdiff (src, blur, temp);
+        low_contrast_mask = temp < threshold;
+        src.copyTo (dst, low_contrast_mask);
+    }
+}
 
+int applyOldMagicFilter (cv::Mat &input, cv::Mat &dst) {
+    
     if ( input.type()!=CV_8UC3 )
         CV_Error(CV_StsError,"!bgr");
 
@@ -126,6 +142,8 @@ int applyMagicFilter (cv::Mat &input, cv::Mat &dst) {
     return 0;
 }
 
+
+
 int main(int argc, char *argv[]) {
     string fileName = "../../data/img_16.jpg";
     string outName = "images/filtered2.jpg";
@@ -136,8 +154,19 @@ int main(int argc, char *argv[]) {
         }
     }
     cv::Mat input = cv::imread(fileName, CV_LOAD_IMAGE_COLOR );
+    // reduce dim for speed.
+    resize_image (input, 1536);
     cv::Mat dst;
-    applyMagicFilter (input, dst);
+    // applyOldMagicFilter (input, dst);
+    _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 1);
+    namedWindow ("mask1", WINDOW_AUTOSIZE);
+    imshow ("mask1", dst);
+    waitKey(0);
+    _unsharp_mask (input, dst, cv::Size(5, 5), 1.0, 1.0, 20);
+    namedWindow ("mask2", WINDOW_AUTOSIZE);
+    imshow ("mask2", dst);
+    waitKey(0);
+
     imwrite (outName, dst);
 }
    
