@@ -6,8 +6,10 @@
 #  Details     : https://hypjudy.github.io/2017/03/28/cvpr-A4-paper-sheet-detection-and-cropping/
 #  Code        : https://github.com/HYPJUDY/A4-paper-sheet-detection-and-cropping
 */
-
+#include <bits/stdc++.h>
 #include "Warping.h"
+using namespace std;
+
 int main() {
 	int CASE = 1; // 1 for dataset1; otherwise for dataset2
 
@@ -16,7 +18,7 @@ int main() {
 	const char* data_folder = "dataset1/";
 	if (CASE == 1) {
 		image_num = 18;
-		data_folder = "dataset_bmp/";
+		data_folder = "dataset/";
 	}
 	else {
 		image_num = 5;
@@ -33,6 +35,8 @@ int main() {
 		strcat(inPath, num[i]);
 		strcat(inPath, ".jpg");
 		
+		cout << "Processing image : " << inPath << endl;
+
 		Hough hough(inPath);
 		if (hough.getError())continue;
 
