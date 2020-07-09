@@ -48,6 +48,10 @@
 - go to build and run with ```./imgtxtenh -t wolf input_path output_path```
 - See the man folder for more details on available options.
 
+## 7. &nbsp; filters_cpp
+- C++ implementation of all filters except the gray.
+- Working on adding gray filter.
+- Gray filter will be quite useful in OCR
 
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
@@ -55,12 +59,11 @@
 - https://github.com/ctodobom/OpenNoteScanner
 - https://stackoverflow.com/questions/8667818/opencv-c-obj-c-detecting-a-sheet-of-paper-square-detection
 - https://github.com/mmackh/MAImagePickerController-of-InstaPDF
-
+- https://stackoverflow.com/questions/49365609/get-bottomleft-topleft-corners
 ## Filtering and Other resources
-- https://stackoverflow.com/a/62634900/8558040 Promising approach for shaddow correction and image enhancement.
+- https://stackoverflow.com/a/62634900/8558040 Promising approach for shadow correction and image enhancement.
 - https://github.com/mysterioustrousers/MTGeometry For validation of selected points by user.
 - User manual from camscanner - http://s.intsig.net/r/manual/CamScanner_Android3.0_en-us.html
-- https://android.developreference.com/article/18080320/How+to+get+Magic+Color+effect+like+Cam+Scanner+using+OpenCV
 - https://medium.com/illuin/cleaning-up-dirty-scanned-documents-with-deep-learning-2e8e6de6cfa6
 - http://www.recogniform.net/eng/how-to-enhance-scanned-documents.html
 - http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Jyotirmoy09Contextual.pdf
