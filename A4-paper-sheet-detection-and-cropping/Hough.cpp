@@ -85,27 +85,33 @@ Hough::Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points) {
 	// hough_space.save("dataset1/hough_space.bmp");// .save("dataset1/hough_space.bmp");
 	getHoughEdges();
 	if (ERROR){
-		return;
+		ordered_corners.clear();
+		ordered_corners.push_back(Point(10,10));
+		ordered_corners.push_back(Point(10,w-10));
+		ordered_corners.push_back(Point(h-10,10));
+		ordered_corners.push_back(Point(h-10,w-10));
 	}
 	// hough_space.save("dataset1/hough_space2.bmp");// .save("dataset1/hough_space2.bmp");
-	getLines();
-	getCorners();
-	orderCorners();
-	if (ERROR){
-		ordered_corners[0].x = 10, ordered_corners[0].y = 10;
-		ordered_corners[1].x = 10, ordered_corners[1].y = w - 10;
-		ordered_corners[2].x = h - 10, ordered_corners[2].y = 10;
-		ordered_corners[3].x = h - 10, ordered_corners[3].y = w - 10;
-		return;
-	}
-	else {
-		displayCornersAndLines();
+	else {	
+		getLines();
+		getCorners();
+		orderCorners();
+		if (ERROR){
+			ordered_corners.clear();
+			ordered_corners.push_back(Point(10,10));
+			ordered_corners.push_back(Point(10,w-10));
+			ordered_corners.push_back(Point(h-10,10));
+			ordered_corners.push_back(Point(h-10,w-10));
+		}
+		else {
+			displayCornersAndLines();
+		}
 	}
 	//returning the value
 	for (int i = 0 ; i < 4; i++){
 		order_points.push_back(std::make_pair(ordered_corners[i].x , ordered_corners[i].y));
 	}
-
+	return;
 }
 
 cv::Mat Hough::preprocess (cv::Mat &image){

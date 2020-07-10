@@ -16,7 +16,7 @@ using namespace std;
 int main() {
 	
      
-    char *inPath = "./dataset_original/0.jpg";    
+    char *inPath = "./dataset_original/4.jpg";    
 	cout << "Processing image : " << inPath << endl;
     vector <pair <int, int >> corner_points;
     cv::Mat image;
@@ -29,21 +29,12 @@ int main() {
     for (int i = 0 ; i < 4 ; i++)cout << corner_points[i].first << " " << corner_points[i].second << endl;
     cout << " ========================" << endl;
 
-    //for perspective transformation
-	Warping Warping(hough);
-	
-    //saving the results as image for corner detection
-    // string outPath = "./dataset/2";
-	// outPath +=  "_marked.jpg";
-	// char outPath2[100];
-    // strcpy(outPath2, outPath.c_str());
     hough.getMarkedImg().display();
 
-    //saving the results as image for edge detection
-    // outPath = "./dataset/2";
-    // outPath += "_A4.jpg";
-	// strcpy(outPath2, outPath.c_str());
-	Warping.getCroppedImg().display() ;
-
+    //for perspective transformation
+	if (!hough.getError()){
+        Warping Warping(hough);
+        Warping.getCroppedImg().display() ;
+    }
 	return 0;
 }
