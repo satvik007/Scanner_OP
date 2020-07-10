@@ -10,9 +10,9 @@
 #ifndef _Hough_
 #define _Hough_
 #include "Header_files/CImg.h"
-
-#include<iostream>
-#include<vector>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <bits/stdc++.h>
 using namespace cimg_library;
 struct HoughEdge {
 	int angle, rho, val;
@@ -40,7 +40,7 @@ private:
 	// most of the time, you just need to modify GRAD_THRESHOLD
 	// and Q according to the number of hough_edges
 	const float GRAD_THRESHOLD = 20;
-	const int Q = 3; // the denominator parameter used to get
+	const int Q = 4; // the denominator parameter used to get
 	                 // threshold in getHoughEdges; aims to filter
 	                 // out more than 3 edges
 	const float BLUR_SIGMA = 2;
@@ -76,7 +76,7 @@ private:
 	void orderCorners();
 	void displayCornersAndLines();
 public:
-	Hough(char * filePath);
+	Hough(cv::Mat &src);
 	CImg<float> getRGBImg() { return rgb_img; }
 	CImg<float> getMarkedImg() { return marked_img; }
 	bool getError () {return ERROR;}

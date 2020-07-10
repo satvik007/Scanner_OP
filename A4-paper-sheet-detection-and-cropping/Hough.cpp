@@ -7,9 +7,7 @@
 */
 
 #include "Hough.h"
-#include<cmath>
-#include<algorithm>
-
+#include <bits/stdc++.h>
 /* Compare function for HoughEdge sort.
 The strongest edge rank first. */
 bool cmp_edges_val(HoughEdge e1, HoughEdge e2) {
@@ -35,15 +33,35 @@ bool cmp_lines(Line l1, Line l2) {
 	return l1.m < l2.m;
 }
 
-/* Constructor */
-Hough::Hough(char* filePath) {
-	// init
-	//if BMP file
-	// rgb_img.load_bmp(filePath);
+CImg <double> convert_cv_to_cimg (cv::Mat &image){
+	
+	uint8_t* pixelPtr = (uint8_t*)image.data;
+    CImg<double> temp_rgb_img(image.cols , image.rows , 1 , 3 , 0);
+    
 
-	//If jpg file
-	CImg<double> temp_rgb_img(filePath);
-	rgb_img = temp_rgb_img;
+    int cn = image.channels();
+    std::vector<unsigned char> bgrPixel(3);
+
+    for(int i = 0; i < image.rows; i++)
+    {
+        for(int j = 0; j < image.cols; j++)
+        {
+            bgrPixel[0] = pixelPtr[i*image.cols*cn + j*cn + 0]; // B
+            bgrPixel[1] = pixelPtr[i*image.cols*cn + j*cn + 1]; // G
+            bgrPixel[2] = pixelPtr[i*image.cols*cn + j*cn + 2]; // R
+
+            temp_rgb_img (j,i,0) = bgrPixel[2];
+            temp_rgb_img (j,i,1) = bgrPixel[1];
+            temp_rgb_img (j,i,2) = bgrPixel[0];
+            // do something with BGR values...
+        }
+    }
+	return temp_rgb_img;
+}
+
+/* Constructor */
+Hough::Hough(cv::Mat &src) {
+	rgb_img = convert_cv_to_cimg(src);
 
 	w = rgb_img.width();
 	h = rgb_img.height();
@@ -52,10 +70,10 @@ Hough::Hough(char* filePath) {
 
 	rgb2gray();
 	gray_img.blur(BLUR_SIGMA);
-	//gray_img.blur(BLUR_SIGMA).display()
-	// gray_img.blur(BLUR_SIGMA).save("dataset1/blur.bmp");// .save("dataset1/blur.bmp");
+	// gray_img.blur(BLUR_SIGMA).display()
+	// gray_img.blur(BLUR_SIGMA).save("dataset_bmp/blur.jpg");// .save("dataset1/blur.bmp");
 	getGradient();
-	// gradients.save("dataset1/gradient.bmp");// .save("dataset1/gradient.bmp");
+	gradients.save("dataset_bmp/gradient.jpg");// .save("dataset1/gradient.bmp");
 	houghTransform();
 	// hough_space.save("dataset1/hough_space.bmp");// .save("dataset1/hough_space.bmp");
 	getHoughEdges();
