@@ -10,8 +10,6 @@
  * Created on : 8 July 2020
 */
 
-#ifndef __FILTERS_HPP__
-#define __FILTERS_HPP__
 #include <opencv2/core/core.hpp>
 #include <opencv2/core/base.hpp>
 #include <opencv2/imgproc.hpp>
@@ -163,5 +161,3 @@ void gray_filter (cv::Mat &src, cv::Mat &dst) {
 void sharpen_filter (cv::Mat &src, cv::Mat &dst, cv::Size kernel_size, const double sigma, const double amount, const int threshold) {
     _unsharp_mask (src, dst, kernel_size, sigma, amount, threshold);
 };
-
-#endif
