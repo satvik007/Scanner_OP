@@ -16,35 +16,34 @@ using namespace std;
 int main() {
 	
      
-    char *inPath = "./dataset/2.jpg";    
+    char *inPath = "./dataset_original/0.jpg";    
 	cout << "Processing image : " << inPath << endl;
-    
+    vector <pair <int, int >> corner_points;
     cv::Mat image;
     image = cv::imread(inPath, CV_LOAD_IMAGE_COLOR);
 
-    cv::namedWindow( "Display window", cv::WINDOW_AUTOSIZE );// Create a window for display.
-    cv::imshow( "Display window", image );                   // Show our image inside it.
-
-    cv::waitKey(0);
-
 	//for corner detection
-    Hough hough(image);
+    Hough hough(image , corner_points);
+
+    cout << "Corner point ================== " << endl;
+    for (int i = 0 ; i < 4 ; i++)cout << corner_points[i].first << " " << corner_points[i].second << endl;
+    cout << " ========================" << endl;
 
     //for perspective transformation
 	Warping Warping(hough);
-		
+	
     //saving the results as image for corner detection
-    string outPath = "./dataset/2";
-	outPath +=  "_marked.jpg";
-	char outPath2[100];
-    strcpy(outPath2, outPath.c_str());
-    hough.getMarkedImg().save(outPath2);
+    // string outPath = "./dataset/2";
+	// outPath +=  "_marked.jpg";
+	// char outPath2[100];
+    // strcpy(outPath2, outPath.c_str());
+    hough.getMarkedImg().display();
 
     //saving the results as image for edge detection
-    outPath = "./dataset/2";
-    outPath += "_A4.jpg";
-	strcpy(outPath2, outPath.c_str());
-	Warping.getCroppedImg().save(outPath2);
+    // outPath = "./dataset/2";
+    // outPath += "_A4.jpg";
+	// strcpy(outPath2, outPath.c_str());
+	Warping.getCroppedImg().display() ;
 
 	return 0;
 }

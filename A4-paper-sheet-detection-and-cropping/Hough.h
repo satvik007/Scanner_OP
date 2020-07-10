@@ -12,6 +12,8 @@
 #include "Header_files/CImg.h"
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+
+
 #include <bits/stdc++.h>
 using namespace cimg_library;
 struct HoughEdge {
@@ -53,6 +55,8 @@ private:
 	float x1, y1, x2, y2, x3, y3, x4, y4; // source corners
 
 	bool ERROR = false;                   //if some error occurs;
+	float resize_ratio = -1;
+
 
 	int w, h; // width and height of rgb image
 	CImg<float> gradients;
@@ -67,6 +71,7 @@ private:
 	// in the order of top-left, top-right, bottom-left, bottom-right
 
 	float distance(float diff_x, float diff_y);
+	cv::Mat preprocess (cv::Mat &image);
 	void rgb2gray();
 	void getGradient();
 	void houghTransform();
@@ -76,7 +81,7 @@ private:
 	void orderCorners();
 	void displayCornersAndLines();
 public:
-	Hough(cv::Mat &src);
+	Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points);
 	CImg<float> getRGBImg() { return rgb_img; }
 	CImg<float> getMarkedImg() { return marked_img; }
 	bool getError () {return ERROR;}

@@ -8,6 +8,10 @@
 
 #include "Hough.h"
 #include <bits/stdc++.h>
+#include "opencv2/imgproc/imgproc.hpp"
+
+//this gives error
+// #include "opencv2/opencv.hpp"
 /* Compare function for HoughEdge sort.
 The strongest edge rank first. */
 bool cmp_edges_val(HoughEdge e1, HoughEdge e2) {
@@ -60,7 +64,10 @@ CImg <double> convert_cv_to_cimg (cv::Mat &image){
 }
 
 /* Constructor */
-Hough::Hough(cv::Mat &src) {
+Hough::Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points) {
+	
+	
+	src = preprocess (src);
 	rgb_img = convert_cv_to_cimg(src);
 
 	w = rgb_img.width();
@@ -73,7 +80,7 @@ Hough::Hough(cv::Mat &src) {
 	// gray_img.blur(BLUR_SIGMA).display()
 	// gray_img.blur(BLUR_SIGMA).save("dataset_bmp/blur.jpg");// .save("dataset1/blur.bmp");
 	getGradient();
-	gradients.save("dataset_bmp/gradient.jpg");// .save("dataset1/gradient.bmp");
+	// gradients.save("dataset_bmp/gradient.jpg");// .save("dataset1/gradient.bmp");
 	houghTransform();
 	// hough_space.save("dataset1/hough_space.bmp");// .save("dataset1/hough_space.bmp");
 	getHoughEdges();
@@ -85,9 +92,40 @@ Hough::Hough(cv::Mat &src) {
 	getCorners();
 	orderCorners();
 	if (ERROR){
+		ordered_corners[0].x = 10, ordered_corners[0].y = 10;
+		ordered_corners[1].x = 10, ordered_corners[1].y = w - 10;
+		ordered_corners[2].x = h - 10, ordered_corners[2].y = 10;
+		ordered_corners[3].x = h - 10, ordered_corners[3].y = w - 10;
 		return;
 	}
-	displayCornersAndLines();
+	else {
+		displayCornersAndLines();
+	}
+	//returning the value
+	for (int i = 0 ; i < 4; i++){
+		order_points.push_back(std::make_pair(ordered_corners[i].x , ordered_corners[i].y));
+	}
+
+}
+
+cv::Mat Hough::preprocess (cv::Mat &image){
+
+	cv::Scalar value;
+	cv::RNG rng;
+	value = cv::Scalar( rng.uniform(0, 255), rng.uniform(0, 255), rng.uniform(0, 255) );
+	copyMakeBorder( image, image, 100, 100, 100, 100, cv::BORDER_REPLICATE, value );
+
+	int h = image.size().height;
+	int w = image.size().width;
+	int height = 800;                //fixing the height to 800
+    
+	resize_ratio = height/float(h);
+	int width = int (w * resize_ratio);
+
+
+    cv::resize(image, image, cv::Size(width,height), 0, 0, CV_INTER_LINEAR);
+
+    return image;
 }
 
 /* Euclidean distance / Pythagorean Theorem */
@@ -147,7 +185,7 @@ void Hough::houghTransform() {
 void Hough::getHoughEdges() {
 	int maxVal = hough_space.max();
 	int threshold = floor(maxVal / Q);
-	std::cout << maxVal << " " << threshold << std::endl;
+	// std::cout << maxVal << " " << threshold << std::endl;
 	cimg_forXY(hough_space, angle, rho) {
 		int val = hough_space(angle, rho);
 		if (val < threshold || rho == 0) {
@@ -373,16 +411,16 @@ void Hough::displayCornersAndLines() {
 		marked_img.draw_circle(lines[i].x1, lines[i].y1, 5, color_yellow);
 
 		// print
-		if (lines[i].dist_o > 0) {
-			std::cout << "Line " << i << ": x = " << lines[i].dist_o << std::endl;
-		}
-		else {
-			char op = lines[i].b > 0 ? '+' : '-';
-			std::cout << "Line " << i << ": y = " << lines[i].m
-				<< "x " << op << abs(lines[i].b) << std::endl;
-		}
-		std::cout << "Two end points of line " << i << ": (" << lines[i].x0 <<
-			", " << lines[i].y0 << "), (" << lines[i].x1 <<
-			", " << lines[i].y1 << ")" << std::endl;
+		// if (lines[i].dist_o > 0) {
+			// std::cout << "Line " << i << ": x = " << lines[i].dist_o << std::endl;
+		// }
+		// else {
+			// char op = lines[i].b > 0 ? '+' : '-';
+			// std::cout << "Line " << i << ": y = " << lines[i].m
+				// << "x " << op << abs(lines[i].b) << std::endl;
+		// }
+		// std::cout << "Two end points of line " << i << ": (" << lines[i].x0 <<
+			// ", " << lines[i].y0 << "), (" << lines[i].x1 <<
+			// ", " << lines[i].y1 << ")" << std::endl;
 	}
 }
