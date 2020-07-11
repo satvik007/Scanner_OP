@@ -7,6 +7,7 @@
 #  Code        : https://github.com/HYPJUDY/A4-paper-sheet-detection-and-cropping
 */
 #include <bits/stdc++.h>
+#include "Header_files/CImg.h"
 #include "Warping.h"
 using namespace std;
 
@@ -17,7 +18,7 @@ int main() {
 	int image_num = 17;
 	const char* data_folder = "dataset1/";
 	if (CASE == 1) {
-		image_num = 18;
+		image_num = 17;
 		data_folder = "dataset/";
 	}
 	else {
@@ -37,7 +38,9 @@ int main() {
 		
 		cout << "Processing image : " << inPath << endl;
 
-		Hough hough(inPath);
+		CImg<double> temp_rgb_img(inPath);
+
+		Hough hough(temp_rgb_img);
 		if (hough.getError())continue;
 
 		Warping Warping(hough);
@@ -45,14 +48,14 @@ int main() {
 		char outPath[80];
 		strcpy(outPath, data_folder);
 		strcat(outPath, num[i]);
-		strcat(outPath, "_marked.jpg");
+		strcat(outPath, "_marked_Q3.jpg");
 		hough.getMarkedImg().save(outPath);
 		// hough.getMarkedImg().display().save(outPath);
 
 		char outPath2[80];
 		strcpy(outPath2, data_folder);
 		strcat(outPath2, num[i]);
-		strcat(outPath2, "_A4.jpg");
+		strcat(outPath2, "_A4_Q3.jpg");
 		Warping.getCroppedImg().save(outPath2);
 		// Warping.getCroppedImg().display().save(outPath2);
 	}

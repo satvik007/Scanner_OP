@@ -10,9 +10,11 @@
 #ifndef _Hough_
 #define _Hough_
 #include "Header_files/CImg.h"
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
-#include<iostream>
-#include<vector>
+
+#include <bits/stdc++.h>
 using namespace cimg_library;
 struct HoughEdge {
 	int angle, rho, val;
@@ -40,7 +42,7 @@ private:
 	// most of the time, you just need to modify GRAD_THRESHOLD
 	// and Q according to the number of hough_edges
 	const float GRAD_THRESHOLD = 20;
-	const int Q = 3; // the denominator parameter used to get
+	const int Q = 4; // the denominator parameter used to get
 	                 // threshold in getHoughEdges; aims to filter
 	                 // out more than 3 edges
 	const float BLUR_SIGMA = 2;
@@ -53,6 +55,12 @@ private:
 	float x1, y1, x2, y2, x3, y3, x4, y4; // source corners
 
 	bool ERROR = false;                   //if some error occurs;
+	float resize_ratio = -1;
+
+	//stores the size of original height and width of paper.
+	int Width = -1;
+	int Height = -1;
+
 
 	int w, h; // width and height of rgb image
 	CImg<float> gradients;
@@ -66,7 +74,9 @@ private:
 	std::vector<Point> ordered_corners; // four corners in normal space
 	// in the order of top-left, top-right, bottom-left, bottom-right
 
+
 	float distance(float diff_x, float diff_y);
+	cv::Mat preprocess (cv::Mat &image);
 	void rgb2gray();
 	void getGradient();
 	void houghTransform();
@@ -75,8 +85,10 @@ private:
 	void getCorners();
 	void orderCorners();
 	void displayCornersAndLines();
+	std::pair<int,int> rescale_points (int x , int y);
+
 public:
-	Hough(char * filePath);
+	Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points);
 	CImg<float> getRGBImg() { return rgb_img; }
 	CImg<float> getMarkedImg() { return marked_img; }
 	bool getError () {return ERROR;}

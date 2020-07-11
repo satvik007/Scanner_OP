@@ -34,5 +34,12 @@ for i,img_name in enumerate(images):
     print("Saving image to  : " , save_path)
     error_value = cv2.imwrite(save_path, constant)
     print(error_value)
-    # if not cv2.imwrite(save_path, constant):
-        # raise Exception ("Could not write Image")
+
+
+# img = cv2.cvtColor(orig, cv2.COLOR_RGB2GRAY)
+    # cv2.GaussianBlur(img, (5,5), 0, img)
+    # Task : Learn about bilateral filters
+    # img = cv2.medianBlur (img, 5)
+    # this is to recognize white on white, this line is quite important.
+    # kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(MORPH,MORPH))
+    # dilated = cv2.dilate(img, kernel)
