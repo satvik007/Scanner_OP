@@ -36,9 +36,8 @@
   - Adaptive Threshold
   - fastNlMeansDenoising
 - https://stackoverflow.com/questions/49997681/scanned-document-text-background-clarity-not-good-using-opencv-ios in file filter.cpp yields very promising results. There is an unimplemented part related to no text found in the image. 
-- Will try Flat field correction and other techniques. - doesn't work so well, tried it.
-- Best version till now on non white b.g. is to simply multiply the image by 1.5 (and optionally subtract 10, somehow this lead to more noise), basically increase contrast.
-- Still in progress
+- Tried Flat field correction - doesn't work so well.
+- Best version till now on non-white b.g. is to simply multiply the image by 1.5 (and subtract 40, somehow this lead to bit more noise but preserves information that is otherwise lost), basically increase contrast.
   
 ## 5. &nbsp; bwfilter
 - (Would welcome the owner to fill it)
@@ -52,6 +51,13 @@
 - Run with ```./imgtxtenh img_path```
 - All the important functions from the purpose of the project are defined in ```filters.hpp``` and documented in ```filters.cpp```
 - Good parameters for magic filter usage will be ```alpha=1.4, beta=40```
+
+## 7. &nbsp; corners_cpp
+- C++ implementation of ex02 with modifications learned during experiments.
+- The procedure for compiling is: ```g++ main.cpp corners.cpp -o main.o `pkg-config --cflags --libs opencv` -DDEBUG```
+- Run with ```./main.o [img_in_path] [img_out_path]``` [] is for optional arguments.
+- Implements the function find_best_corners which takes in img and returns the best rectangle the algorithm managed to find.
+- TODO - perspective transform.
 
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
