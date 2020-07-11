@@ -8,6 +8,8 @@
 */
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+
 #include <bits/stdc++.h>
 #include "Header_files/CImg.h"
 #include "Warping.h"
@@ -15,12 +17,10 @@ using namespace std;
 
 int main() {
 	
-     
-    char *inPath = "./dataset_original/4.jpg";    
-	cout << "Processing image : " << inPath << endl;
+    //reading the image
     vector <pair <int, int >> corner_points;
     cv::Mat image;
-    image = cv::imread(inPath, CV_LOAD_IMAGE_COLOR);
+    image = cv::imread( "./dataset_original/3.jpg", CV_LOAD_IMAGE_COLOR);
 
 	//for corner detection
     Hough hough(image , corner_points);
@@ -29,6 +29,13 @@ int main() {
     for (int i = 0 ; i < 4 ; i++)cout << corner_points[i].first << " " << corner_points[i].second << endl;
     cout << " ========================" << endl;
 
+    //draw 4 points
+    cv::Mat original_image = cv::imread ("./dataset_original/3.jpg", CV_LOAD_IMAGE_COLOR);
+    for (int i= 0 ; i < 4 ; i++){
+        cv::circle( original_image, cv::Point(corner_points[i].first , corner_points[i].second), 50, cv::Scalar( 0, 0, 255 ),cv::FILLED,cv::LINE_8  );
+    }
+    
+    cv::imwrite ("./dataset_original/final_result.jpg" , original_image);
     hough.getMarkedImg().display();
 
     //for perspective transformation

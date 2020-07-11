@@ -66,7 +66,11 @@ CImg <double> convert_cv_to_cimg (cv::Mat &image){
 /* Constructor */
 Hough::Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points) {
 	
+	//store the height and width of image
+	Height = src.size().height;
+	Width = src.size().width;
 	
+	//preprocess the image
 	src = preprocess (src);
 	rgb_img = convert_cv_to_cimg(src);
 
@@ -109,9 +113,24 @@ Hough::Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points) {
 	}
 	//returning the value
 	for (int i = 0 ; i < 4; i++){
-		order_points.push_back(std::make_pair(ordered_corners[i].x , ordered_corners[i].y));
+		order_points.push_back(rescale_points(ordered_corners[i].x , ordered_corners[i].y));
 	}
 	return;
+}
+
+//takes one point and rescale according to original image
+std::pair<int,int> Hough::rescale_points (int x , int y){
+
+	int original_x = int(x/resize_ratio) - 100; //100 is padding
+	int original_y = int(y/resize_ratio) - 100; //100 is padding
+
+	original_x = std::max (0 , original_x);
+	original_x = std::min (Width , original_x);
+
+	original_y = std::max (0 , original_y);
+	original_y = std::min (Height , original_y);
+
+	return std::make_pair(original_x, original_y);
 }
 
 cv::Mat Hough::preprocess (cv::Mat &image){

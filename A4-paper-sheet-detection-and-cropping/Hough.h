@@ -57,6 +57,10 @@ private:
 	bool ERROR = false;                   //if some error occurs;
 	float resize_ratio = -1;
 
+	//stores the size of original height and width of paper.
+	int Width = -1;
+	int Height = -1;
+
 
 	int w, h; // width and height of rgb image
 	CImg<float> gradients;
@@ -70,6 +74,7 @@ private:
 	std::vector<Point> ordered_corners; // four corners in normal space
 	// in the order of top-left, top-right, bottom-left, bottom-right
 
+
 	float distance(float diff_x, float diff_y);
 	cv::Mat preprocess (cv::Mat &image);
 	void rgb2gray();
@@ -80,6 +85,8 @@ private:
 	void getCorners();
 	void orderCorners();
 	void displayCornersAndLines();
+	std::pair<int,int> rescale_points (int x , int y);
+
 public:
 	Hough(cv::Mat &src , std::vector <std::pair <int,int>> &order_points);
 	CImg<float> getRGBImg() { return rgb_img; }
