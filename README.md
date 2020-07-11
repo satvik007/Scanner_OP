@@ -43,31 +43,25 @@
 ## 5. &nbsp; bwfilter
 - (Would welcome the owner to fill it)
 
-## 6. &nbsp; imgtxtenh
-- https://github.com/mauvilsa/imgtxtenh
-- go to build and run with ```./imgtxtenh -t wolf input_path output_path```
-- See the man folder for more details on available options.
-
-## 7. &nbsp; filters_cpp
-- C++ implementation of all filters except the gray.
-- Working on adding gray filter.
-- Gray filter will be quite useful in OCR
+## 6. &nbsp; filters_cpp
+- https://github.com/mauvilsa/imgtxtenh 
+- The procedure for compiling is:
+  - ```cd build```
+  - ```cmake -DCMAKE_BUILD_TYPE=Release ..```
+  - ```make```
+- Run with ```./imgtxtenh img_path```
+- All the important functions from the purpose of the project are defined in ```filters.hpp``` and documented in ```filters.cpp```
+- Good parameters for magic filter usage will be ```alpha=1.4, beta=40```
 
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo
 - https://hypjudy.github.io/2017/03/28/cvpr-A4-paper-sheet-detection-and-cropping/
 - https://github.com/ctodobom/OpenNoteScanner
 - https://stackoverflow.com/questions/8667818/opencv-c-obj-c-detecting-a-sheet-of-paper-square-detection
-- https://github.com/mmackh/MAImagePickerController-of-InstaPDF
 - https://stackoverflow.com/questions/49365609/get-bottomleft-topleft-corners
 ## Filtering and Other resources
-- https://stackoverflow.com/a/62634900/8558040 Promising approach for shadow correction and image enhancement.
-- https://github.com/mysterioustrousers/MTGeometry For validation of selected points by user.
 - User manual from camscanner - http://s.intsig.net/r/manual/CamScanner_Android3.0_en-us.html
-- https://medium.com/illuin/cleaning-up-dirty-scanned-documents-with-deep-learning-2e8e6de6cfa6
 - http://www.recogniform.net/eng/how-to-enhance-scanned-documents.html
-- http://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Jyotirmoy09Contextual.pdf
-- https://ieeexplore.ieee.org/document/7881431
 - Document Image Processing for Scanning and Printing by Ilia V. Safonov, Ilya V. Kurilin,  Michael N. Rychagov, Ekaterina V. Tolstaya. Added book in Resources. (Who's going to read this. LOL)
 
 ## OCR Resources ##
@@ -79,5 +73,4 @@
 - https://stackoverflow.com/questions/9152803/
  
 ## Discussion ##
-- Please see the resources folder for the last 2 papers.
-- In general we will try to avoid implementing the papers ourselves but still should look at them for ideas.
+-
