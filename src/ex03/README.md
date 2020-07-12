@@ -12,3 +12,6 @@
 
 ## denoised
 ![denoised](images/denoised.jpg)
+
+## contrast
+![contrast](images/contrast.jpg)
