@@ -5,10 +5,12 @@
  * Created on : 12 July 2020
 */
 
+#include <iostream>
 #include <vector>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
+
 // Declaring parameters globally, found after experiments.
 const int MORPH = 9;
 const int CANNY_LOW = 3;
@@ -96,8 +98,8 @@ void _sanitize_rect (std::vector< cv::Point > &rect, cv::Size size) {
         return;
     assert (rect.size() == 4);
     for (int i = 0; i < 4; i++) {
-        rect[i].x = std::max (0, std::min (rect[i].x, size.height - 1));
-        rect[i].y = std::max (0, std::min (rect[i].y, size.width - 1));
+        rect[i].x = std::max (0, std::min (rect[i].x, size.width - 1));
+        rect[i].y = std::max (0, std::min (rect[i].y, size.height - 1));
     }
 }
 
@@ -105,9 +107,9 @@ int find_best_corners (cv::Mat &input, std::vector < cv::Point > &rect) {
     cv::Mat img;
     std::vector < cv::Point > default_rect;
     default_rect.emplace_back (0, 0);
-    default_rect.emplace_back (0, input.cols - 1);
-    default_rect.emplace_back (input.rows - 1, input.cols - 1);
-    default_rect.emplace_back (input.rows - 1, 0);
+    default_rect.emplace_back (input.cols - 1, 0);
+    default_rect.emplace_back (input.cols - 1, input.rows - 1);
+    default_rect.emplace_back (0, input.rows - 1);
 
     // convert to gray
     if (input.type() == CV_8UC3) {
@@ -159,12 +161,95 @@ int find_best_corners (cv::Mat &input, std::vector < cv::Point > &rect) {
         }
     }
 
-    _sanitize_rect (rect, cv::Size(input.rows, input.cols));
+    _sanitize_rect (rect, cv::Size(input.cols, input.rows));
 
     if (rect.empty()) {
         rect = default_rect;
         return -1;
     }
+
+    return 0;
+}
+
+int order_points (std::vector < cv::Point > &pts, std::vector < cv::Point > &rect) {
+    rect.resize (4);
+    // top left
+    rect[0] = *min_element (pts.begin(), pts.end(), [&] (auto &x, auto &y) {
+        return x.x + x.y < y.x + y.y;
+    });
+    // bottom right
+    rect[2] = *max_element (pts.begin(), pts.end(), [&] (auto &x, auto &y) {
+        return x.x + x.y < y.x + y.y;
+    });
+    // top right
+    rect[1] = *min_element (pts.begin(), pts.end(), [&] (auto &x, auto &y) {
+        return x.y - x.x < y.y - y.x;
+    });
+    // bottom left
+    rect[3] = *max_element (pts.begin(), pts.end(), [&] (auto &x, auto &y) {
+        return x.y - x.x < y.y - y.x;
+    });
+    for (int i = 0; i < 4; i++) {
+        for (int j = i + 1; j < 4; j++) {
+            if (rect[i] == rect[j]) {
+                return -1;
+            }
+        }
+    }
+    return 0;
+}
+
+bool validate_points (std::vector < cv::Point > &pts, bool given_in_order) {
+    assert (pts.size() == 4);
+    std::vector < cv::Point > rect;
+    order_points (pts, rect);
+
+    if (given_in_order) {
+        for (int i = 0; i < 4; i++) {
+            if (pts[i] != rect[i]) {
+                return false;
+            }
+        }
+    }
+
+    return cv::isContourConvex (rect);
+}
+
+int four_point_transform (cv::Mat &img, cv::Mat &dst, std::vector < cv::Point > &pts, const int flag) {
+    std::vector < cv::Point > pt_rect;
+    int ret = order_points (pts, pt_rect);
+    if (ret) {
+        std::cerr << "Error while rotating points." << std::endl;
+        img.copyTo (dst);
+        return -1;
+    }
+    pt_rect = pts;
+
+    std::vector < cv::Point2f > rect;
+    for (auto &el : pt_rect) {
+        rect.emplace_back (el);
+    }
+
+    cv::Point tl, tr, br, bl;
+    tl = rect[0];
+    tr = rect[1];
+    br = rect[2];
+    bl = rect[3];
+    double widthA = sqrt (pow(br.x - bl.x, 2) + pow(br.y - bl.y, 2));
+    double widthB = sqrt (pow(tr.x - tl.x, 2) + pow(tr.y - tl.y, 2));
+    int maxWidth = std::max ((int) widthA, (int) widthB);
+    double heightA = sqrt (pow(tr.x - br.x, 2) + pow(tr.y - br.y, 2));
+    double heightB = sqrt (pow(tl.x - bl.x, 2) + pow(tl.y - bl.y, 2));
+    int maxHeight = std::max ((int) heightA, (int) heightB);
+
+    std::vector < cv::Point2f > final_rect (4);
+    final_rect[0] = cv::Point(0, 0);
+    final_rect[1] = cv::Point(maxWidth - 1, 0);
+    final_rect[2] = cv::Point(maxWidth - 1, maxHeight - 1);
+    final_rect[3] = cv::Point(0, maxHeight - 1);
+    // final_rect = rect;
+    cv::Mat pt = cv::getPerspectiveTransform (rect, final_rect);
+    cv::warpPerspective (img, dst, pt, cv::Size(maxWidth, maxHeight), flag);
 
     return 0;
 }

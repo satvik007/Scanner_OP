@@ -15,4 +15,10 @@ void resize_image_if_bigger (cv::Mat &input, const int dim, const int interpolat
 
 int find_best_corners (cv::Mat &input, std::vector <cv::Point> &rect);
 
+int order_points (std::vector < cv::Point > &pts, std::vector < cv::Point > &rect);
+
+int four_point_transform (cv::Mat &img, cv::Mat &dst, std::vector < cv::Point > &pts, const int flag=cv::INTER_NEAREST);
+
+bool validate_points (std::vector < cv::Point > &pts, bool given_in_order);
+
 #endif

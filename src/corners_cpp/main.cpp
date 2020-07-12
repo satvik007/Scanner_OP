@@ -30,6 +30,14 @@ int main(int argc, char *argv[]) {
     std::vector <cv::Point> rect;
     int ret = find_best_corners (input, rect);
 
+    cv::Mat dst;
+    four_point_transform (input, dst, rect, cv::INTER_NEAREST);
+
+    cv::namedWindow ("out", cv::WINDOW_AUTOSIZE);
+    cv::imshow ("out", dst);
+    cv::waitKey(0);
+    cv::destroyAllWindows();
+
     std::cout << (ret == 0 ? "Perfect" : "Couldn't find") << std::endl;
 
     return 0;
