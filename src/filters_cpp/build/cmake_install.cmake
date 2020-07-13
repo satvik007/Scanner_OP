@@ -1,4 +1,4 @@
-# Install script for directory: /home/satvik/codes/imgtxtenh
+# Install script for directory: /home/satvik/codes/Scanner_OP/src/filters_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/imgtxtenh"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/satvik/codes/imgtxtenh/build/imgtxtenh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/satvik/codes/Scanner_OP/src/filters_cpp/build/imgtxtenh")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/imgtxtenh" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/imgtxtenh")
     file(RPATH_CHANGE
@@ -58,13 +58,13 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/man/man1" TYPE FILE FILES "/home/satvik/codes/imgtxtenh/man/man1/imgtxtenh.1")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/man/man1" TYPE FILE FILES "/home/satvik/codes/Scanner_OP/src/filters_cpp/man/man1/imgtxtenh.1")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/doc/imgtxtenh" TYPE FILE FILES
-    "/home/satvik/codes/imgtxtenh/LICENSE.md"
-    "/home/satvik/codes/imgtxtenh/README.md"
+    "/home/satvik/codes/Scanner_OP/src/filters_cpp/LICENSE.md"
+    "/home/satvik/codes/Scanner_OP/src/filters_cpp/README.md"
     )
 endif()
 
@@ -76,5 +76,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/satvik/codes/imgtxtenh/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/satvik/codes/Scanner_OP/src/filters_cpp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

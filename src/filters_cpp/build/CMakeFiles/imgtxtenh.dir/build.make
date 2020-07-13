@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/satvik/codes/imgtxtenh
+CMAKE_SOURCE_DIR = /home/satvik/codes/Scanner_OP/src/filters_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/satvik/codes/imgtxtenh/build
+CMAKE_BINARY_DIR = /home/satvik/codes/Scanner_OP/src/filters_cpp/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/imgtxtenh.dir/depend.make
@@ -59,133 +59,133 @@ include CMakeFiles/imgtxtenh.dir/flags.make
 
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: ../src/filters.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/imgtxtenh.dir/src/filters.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/filters.cpp.o -c /home/satvik/codes/imgtxtenh/src/filters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/imgtxtenh.dir/src/filters.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/filters.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/filters.cpp
 
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/filters.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/filters.cpp > CMakeFiles/imgtxtenh.dir/src/filters.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/filters.cpp > CMakeFiles/imgtxtenh.dir/src/filters.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/filters.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/filters.cpp -o CMakeFiles/imgtxtenh.dir/src/filters.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/filters.cpp -o CMakeFiles/imgtxtenh.dir/src/filters.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o: ../src/htrprep.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o -c /home/satvik/codes/imgtxtenh/src/htrprep.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/htrprep.cpp
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/htrprep.cpp > CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/htrprep.cpp > CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/htrprep.cpp -o CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/htrprep.cpp -o CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: ../src/img_enhance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o -c /home/satvik/codes/imgtxtenh/src/img_enhance.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_enhance.cpp
 
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/img_enhance.cpp > CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_enhance.cpp > CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/img_enhance.cpp -o CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_enhance.cpp -o CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: ../src/img_opencv.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o -c /home/satvik/codes/imgtxtenh/src/img_opencv.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_opencv.cpp
 
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/img_opencv.cpp > CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_opencv.cpp > CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/img_opencv.cpp -o CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/img_opencv.cpp -o CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o: ../src/imgconv.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o -c /home/satvik/codes/imgtxtenh/src/imgconv.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/imgconv.cpp
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/imgconv.cpp > CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/imgconv.cpp > CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/imgconv.cpp -o CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/imgconv.cpp -o CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o: ../src/intimg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o -c /home/satvik/codes/imgtxtenh/src/intimg.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/intimg.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/intimg.cpp
 
 CMakeFiles/imgtxtenh.dir/src/intimg.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/intimg.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/intimg.cpp > CMakeFiles/imgtxtenh.dir/src/intimg.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/intimg.cpp > CMakeFiles/imgtxtenh.dir/src/intimg.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/intimg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/intimg.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/intimg.cpp -o CMakeFiles/imgtxtenh.dir/src/intimg.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/intimg.cpp -o CMakeFiles/imgtxtenh.dir/src/intimg.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/log.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/log.cpp.o: ../src/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imgtxtenh.dir/src/log.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/log.cpp.o -c /home/satvik/codes/imgtxtenh/src/log.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imgtxtenh.dir/src/log.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/log.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/log.cpp
 
 CMakeFiles/imgtxtenh.dir/src/log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/log.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/log.cpp > CMakeFiles/imgtxtenh.dir/src/log.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/log.cpp > CMakeFiles/imgtxtenh.dir/src/log.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/log.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/log.cpp -o CMakeFiles/imgtxtenh.dir/src/log.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/log.cpp -o CMakeFiles/imgtxtenh.dir/src/log.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/main.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/imgtxtenh.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/main.cpp.o -c /home/satvik/codes/imgtxtenh/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/imgtxtenh.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/main.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/main.cpp
 
 CMakeFiles/imgtxtenh.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/main.cpp > CMakeFiles/imgtxtenh.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/main.cpp > CMakeFiles/imgtxtenh.dir/src/main.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/main.cpp -o CMakeFiles/imgtxtenh.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/main.cpp -o CMakeFiles/imgtxtenh.dir/src/main.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.o: ../src/mem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/imgtxtenh.dir/src/mem.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/mem.cpp.o -c /home/satvik/codes/imgtxtenh/src/mem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/imgtxtenh.dir/src/mem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/mem.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/mem.cpp
 
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/mem.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/mem.cpp > CMakeFiles/imgtxtenh.dir/src/mem.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/mem.cpp > CMakeFiles/imgtxtenh.dir/src/mem.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/mem.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/mem.cpp -o CMakeFiles/imgtxtenh.dir/src/mem.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/mem.cpp -o CMakeFiles/imgtxtenh.dir/src/mem.cpp.s
 
 CMakeFiles/imgtxtenh.dir/src/objs.cpp.o: CMakeFiles/imgtxtenh.dir/flags.make
 CMakeFiles/imgtxtenh.dir/src/objs.cpp.o: ../src/objs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/imgtxtenh.dir/src/objs.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/objs.cpp.o -c /home/satvik/codes/imgtxtenh/src/objs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/imgtxtenh.dir/src/objs.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/imgtxtenh.dir/src/objs.cpp.o -c /home/satvik/codes/Scanner_OP/src/filters_cpp/src/objs.cpp
 
 CMakeFiles/imgtxtenh.dir/src/objs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/imgtxtenh.dir/src/objs.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/imgtxtenh/src/objs.cpp > CMakeFiles/imgtxtenh.dir/src/objs.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/satvik/codes/Scanner_OP/src/filters_cpp/src/objs.cpp > CMakeFiles/imgtxtenh.dir/src/objs.cpp.i
 
 CMakeFiles/imgtxtenh.dir/src/objs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/imgtxtenh.dir/src/objs.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/imgtxtenh/src/objs.cpp -o CMakeFiles/imgtxtenh.dir/src/objs.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/satvik/codes/Scanner_OP/src/filters_cpp/src/objs.cpp -o CMakeFiles/imgtxtenh.dir/src/objs.cpp.s
 
 # Object files for target imgtxtenh
 imgtxtenh_OBJECTS = \
@@ -220,18 +220,18 @@ imgtxtenh: /usr/local/lib/libopencv_aruco.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_bgsegm.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_bioinspired.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_ccalib.so.4.2.0
+imgtxtenh: /usr/local/lib/libopencv_cvv.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_dnn_objdetect.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_dnn_superres.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_dpm.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_face.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_freetype.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_fuzzy.so.4.2.0
+imgtxtenh: /usr/local/lib/libopencv_hdf.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_hfs.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_img_hash.so.4.2.0
-imgtxtenh: /usr/local/lib/libopencv_intensity_transform.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_line_descriptor.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_quality.so.4.2.0
-imgtxtenh: /usr/local/lib/libopencv_rapid.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_reg.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_rgbd.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_saliency.so.4.2.0
@@ -241,6 +241,7 @@ imgtxtenh: /usr/local/lib/libopencv_superres.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_surface_matching.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_tracking.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_videostab.so.4.2.0
+imgtxtenh: /usr/local/lib/libopencv_viz.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_xfeatures2d.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_xobjdetect.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_xphoto.so.4.2.0
@@ -265,7 +266,7 @@ imgtxtenh: /usr/local/lib/libopencv_photo.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_imgproc.so.4.2.0
 imgtxtenh: /usr/local/lib/libopencv_core.so.4.2.0
 imgtxtenh: CMakeFiles/imgtxtenh.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/satvik/codes/imgtxtenh/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable imgtxtenh"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable imgtxtenh"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgtxtenh.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -278,6 +279,6 @@ CMakeFiles/imgtxtenh.dir/clean:
 .PHONY : CMakeFiles/imgtxtenh.dir/clean
 
 CMakeFiles/imgtxtenh.dir/depend:
-	cd /home/satvik/codes/imgtxtenh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build/CMakeFiles/imgtxtenh.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/satvik/codes/Scanner_OP/src/filters_cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/Scanner_OP/src/filters_cpp /home/satvik/codes/Scanner_OP/src/filters_cpp /home/satvik/codes/Scanner_OP/src/filters_cpp/build /home/satvik/codes/Scanner_OP/src/filters_cpp/build /home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles/imgtxtenh.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/imgtxtenh.dir/depend
 

@@ -1,5 +1,5 @@
 /**
- * g++ main.cpp corners.cpp -o main.o `pkg-config --cflags --libs opencv` -DDEBUG && ./main.o ../../data/img_23.jpg
+ * g++ main.cpp corners.cpp -o main.o `pkg-config --cflags --libs opencv4` -DDEBUG && ./main.o ../../data/img_23.jpg
  * 
  * This document is part of the project ScanIN. See License for more details.
  * This is alternative implementation of corner detection algorithm.
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         }
     }
     cv::Mat input = cv::imread(fileName, cv::IMREAD_COLOR);
-    resize_image_if_bigger (input, 1024);
+    resize_image_if_bigger (input, input, 1300);
     
     std::vector <cv::Point> rect;
     int ret = find_best_corners (input, rect);
@@ -33,12 +33,15 @@ int main(int argc, char *argv[]) {
     cv::Mat dst;
     four_point_transform (input, dst, rect, cv::INTER_NEAREST);
 
+#ifdef DEBUG
     cv::namedWindow ("out", cv::WINDOW_AUTOSIZE);
     cv::imshow ("out", dst);
     cv::waitKey(0);
     cv::destroyAllWindows();
-
     std::cout << (ret == 0 ? "Perfect" : "Couldn't find") << std::endl;
+#endif
+
+    cv::imwrite (outName, dst);
 
     return 0;
 }

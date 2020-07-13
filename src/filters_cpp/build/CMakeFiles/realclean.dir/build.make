@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/satvik/codes/imgtxtenh
+CMAKE_SOURCE_DIR = /home/satvik/codes/Scanner_OP/src/filters_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/satvik/codes/imgtxtenh/build
+CMAKE_BINARY_DIR = /home/satvik/codes/Scanner_OP/src/filters_cpp/build
 
 # Utility rule file for realclean.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/satvik/codes/imgtxtenh/build
 include CMakeFiles/realclean.dir/progress.make
 
 CMakeFiles/realclean:
-	cd /home/satvik/codes/imgtxtenh
+	cd /home/satvik/codes/Scanner_OP/src/filters_cpp
 	rm -fr imgtxtenh imgtxtenh.exe CMakeFiles CMakeCache.txt cmake_install.cppmake install_manifest.txt Makefile
 
 realclean: CMakeFiles/realclean
@@ -72,6 +72,6 @@ CMakeFiles/realclean.dir/clean:
 .PHONY : CMakeFiles/realclean.dir/clean
 
 CMakeFiles/realclean.dir/depend:
-	cd /home/satvik/codes/imgtxtenh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build /home/satvik/codes/imgtxtenh/build/CMakeFiles/realclean.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/satvik/codes/Scanner_OP/src/filters_cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/satvik/codes/Scanner_OP/src/filters_cpp /home/satvik/codes/Scanner_OP/src/filters_cpp /home/satvik/codes/Scanner_OP/src/filters_cpp/build /home/satvik/codes/Scanner_OP/src/filters_cpp/build /home/satvik/codes/Scanner_OP/src/filters_cpp/build/CMakeFiles/realclean.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/realclean.dir/depend
 

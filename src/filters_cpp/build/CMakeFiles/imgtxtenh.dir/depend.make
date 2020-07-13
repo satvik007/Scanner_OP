@@ -130,6 +130,11 @@ CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/v
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/videostab/ring_buffer.hpp
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/videostab/stabilizer.hpp
 CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/videostab/wobble_suppression.hpp
+CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/viz.hpp
+CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/viz/types.hpp
+CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/viz/viz3d.hpp
+CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/viz/vizcore.hpp
+CMakeFiles/imgtxtenh.dir/src/filters.cpp.o: /usr/local/include/opencv4/opencv2/viz/widgets.hpp
 
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o: ../src/htrprep.cpp
 CMakeFiles/imgtxtenh.dir/src/htrprep.cpp.o: ../src/htrprep.hpp
@@ -268,6 +273,11 @@ CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/openc
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/videostab/ring_buffer.hpp
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/videostab/stabilizer.hpp
 CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/videostab/wobble_suppression.hpp
+CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/viz.hpp
+CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/viz/types.hpp
+CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/viz/viz3d.hpp
+CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/viz/vizcore.hpp
+CMakeFiles/imgtxtenh.dir/src/img_enhance.cpp.o: /usr/local/include/opencv4/opencv2/viz/widgets.hpp
 
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: ../src/img_opencv.cpp
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: ../src/img_opencv.hpp
@@ -396,6 +406,11 @@ CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/videostab/ring_buffer.hpp
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/videostab/stabilizer.hpp
 CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/videostab/wobble_suppression.hpp
+CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/viz.hpp
+CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/viz/types.hpp
+CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/viz/viz3d.hpp
+CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/viz/vizcore.hpp
+CMakeFiles/imgtxtenh.dir/src/img_opencv.cpp.o: /usr/local/include/opencv4/opencv2/viz/widgets.hpp
 
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o: ../src/imgconv.cpp
 CMakeFiles/imgtxtenh.dir/src/imgconv.cpp.o: ../src/imgconv.hpp
@@ -534,6 +549,11 @@ CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/vide
 CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/videostab/ring_buffer.hpp
 CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/videostab/stabilizer.hpp
 CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/videostab/wobble_suppression.hpp
+CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/viz.hpp
+CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/viz/types.hpp
+CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/viz/viz3d.hpp
+CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/viz/vizcore.hpp
+CMakeFiles/imgtxtenh.dir/src/main.cpp.o: /usr/local/include/opencv4/opencv2/viz/widgets.hpp
 
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.o: ../src/mem.cpp
 CMakeFiles/imgtxtenh.dir/src/mem.cpp.o: ../src/mem.hpp

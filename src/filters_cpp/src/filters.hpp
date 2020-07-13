@@ -15,7 +15,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc.hpp>
 
-void resize_image_if_bigger (cv::Mat &input, const int dim=1536, const int interpolation=cv::INTER_AREA);
+void resize_image_if_bigger (cv::Mat &input, cv::Mat &dst, const int dim=1536, const int interpolation=cv::INTER_AREA);
 
 void magic_filter (cv::Mat &src, cv::Mat &dst, const double alpha=1.5, const int beta=0, const int threshold=0);
 

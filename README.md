@@ -57,7 +57,10 @@
 - The procedure for compiling is: ```g++ main.cpp corners.cpp -o main.o `pkg-config --cflags --libs opencv` -DDEBUG```
 - Run with ```./main.o [img_in_path] [img_out_path]``` [] is for optional arguments.
 - Implements the function find_best_corners which takes in img and returns the best rectangle the algorithm managed to find.
-- TODO - perspective transform.
+- Implements four point transform for cropping and warping.
+- Implements order points.
+- Implements validate points.
+- Completed with documentation.
 
 ## Remaining resources for corner detection ##
 - https://stackoverflow.com/questions/6555629/algorithm-to-detect-corners-of-paper-sheet-in-photo

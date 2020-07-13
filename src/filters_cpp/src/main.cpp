@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
         }
     }
     cv::Mat input = cv::imread(fileName, cv::IMREAD_COLOR);
-    resize_image_if_bigger (input, 1536);
+    resize_image_if_bigger (input, input, 1536);
     cv::Mat dst;
     // magic_filter (input, dst, 1.4, -50);
     dark_magic_filter (input, dst);

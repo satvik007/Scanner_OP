@@ -1,2 +1,4 @@
 # ignore c++ generated files.
 *.o
+/filters_cpp/build/
+!/filters_cpp/build/*.jpg

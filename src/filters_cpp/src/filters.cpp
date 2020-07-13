@@ -17,11 +17,15 @@
 #include "img_enhance.hpp"
 #include <vector>
 
-/**This code resizes the image if its width is bigger than necessary.
+/**This code resizes the image if its width or height is bigger than necessary.
+ * The aspect ratio is preserved.
  * This is done mainly to boost performance of the algorithms.
  * 
  * @param input 
  * The input image of type cv::Mat
+ * 
+ * @param dst
+ * The output image of type cv::Mat
  *  
  * @param dim
  * Maximum width of type int (1536 used by default)
@@ -37,14 +41,12 @@
  * – INTER_CUBIC - a bicubic interpolation over 4x4 pixel neighborhood
  * – INTER_LANCZOS4 - a Lanczos interpolation over 8x8 pixel neighborhood
 */
-void resize_image_if_bigger (cv::Mat &input, const int dim, const int interpolation) {
-    int maxdim = input.cols; //std::max(input.rows,input.cols);
-    if ( maxdim > dim )
+void resize_image_if_bigger (cv::Mat &input, cv::Mat &dst, const int dim, const int interpolation) {
+    int maxdim = std::max(input.rows,input.cols);
+    if (maxdim > dim)
     {
         double scale = (double)dim/(double)maxdim;
-        cv::Mat t;
-        cv::resize( input, t, cv::Size(), scale, scale, interpolation);
-        input = t;
+        cv::resize(input, dst, cv::Size(), scale, scale, interpolation);
     }
 }
 
