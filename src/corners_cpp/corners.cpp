@@ -12,13 +12,13 @@
 #include <opencv2/highgui.hpp>
 
 // Declaring parameters globally, found after experiments.
-const int MORPH = 7;
-const int CANNY_LOW = 3;
-const int CANNY_HI = 20;
+const int MORPH = 11;
+const int CANNY_LOW = 25;
+const int CANNY_HI = 60;
 const int HOUGH = 30;
 const int PI = acos (-1);
-const int MIN_ANGLE = 60;
-const int MAX_ANGLE = 120;
+const int MIN_ANGLE = 70;
+const int MAX_ANGLE = 110;
 
 /**This code resizes the image if its width or height is bigger than necessary.
  * The aspect ratio is preserved.
@@ -50,6 +50,8 @@ void resize_image_if_bigger (cv::Mat &input, cv::Mat &dst, const int dim, const 
     {
         double scale = (double)dim/(double)maxdim;
         cv::resize(input, dst, cv::Size(), scale, scale, interpolation);
+    } else {
+        input.copyTo (dst);
     }
 }
 
@@ -63,8 +65,8 @@ void resize_image_if_bigger (cv::Mat &input, cv::Mat &dst, const int dim, const 
  * @param dst
  * The output image of type cv::Mat
  * 
- * @param gauss_kernel
- * Size of the kernel for gaussian Blur, of type int (default=5)
+ * @param bilateral_kernel
+ * Size of the kernel for Bilateral filter, of type int (default=5)
  * 
  * @param median_kernel
  * Size of the kernel for median blur, of type int (default=9)
@@ -72,13 +74,17 @@ void resize_image_if_bigger (cv::Mat &input, cv::Mat &dst, const int dim, const 
  * @param iterations
  * Number of times to apply the dilation operation, of type int (default=1)
 */
-void _image_preprocessing (cv::Mat &img, cv::Mat &dst, const int gauss_kernel=5, const int median_kernel=9, const int iterations=1) {
-    img.copyTo (dst);
-    cv::GaussianBlur (dst, dst, cv::Size(gauss_kernel, gauss_kernel), 0);
+void _image_preprocessing (cv::Mat &img, cv::Mat &dst, const int bilateral_kernel=5, const int median_kernel=9, const int iterations=1) {
+
+    cv::Mat temp;
+    cv::cvtColor (img, temp, cv::COLOR_BGR2Lab);
+    cv::bilateralFilter (temp, dst, bilateral_kernel, 10, 75);
+    cv::cvtColor (dst, dst, cv::COLOR_Lab2BGR);
     cv::medianBlur (dst, dst, median_kernel);
-    // This helps in detection of white on white.
     cv::Mat kernel = cv::getStructuringElement (cv::MORPH_RECT, cv::Size(MORPH, MORPH));
     cv::dilate (dst, dst, kernel, cv::Point(-1, -1), iterations);
+    cv::erode (dst, dst, kernel, cv::Point(-1, -1), iterations);
+    cv::copyMakeBorder(dst, dst, 5, 5, 5, 5, cv::BORDER_CONSTANT, cv::Scalar(0, 0, 0));
 }
 
 /**This function finds out the edges in the preprocessed image with the Canny Edge
@@ -111,7 +117,7 @@ void _generate_edges (cv::Mat &img, cv::Mat &edges) {
 #endif
     }
     // Will close more gaps by dilating on MORPH_RECT based kernel.
-    cv::Mat kernel = cv::getStructuringElement (cv::MORPH_RECT, cv::Size(MORPH, MORPH));
+    cv::Mat kernel = cv::getStructuringElement (cv::MORPH_RECT, cv::Size(7, 7));
     cv::dilate (edges, edges, kernel, cv::Point(-1, -1), 1);
 #ifdef DEBUG       
     cv::dilate (eg, eg, kernel, cv::Point(-1, -1), 1);
@@ -242,11 +248,12 @@ bool _angle_check (std::vector < cv::Point > &contour) {
 void _find_contours (cv::Mat edges, std::vector< std::vector< cv::Point > > &contours, const int cnt_method=cv::RETR_LIST) {
 
     std::vector< std::vector< cv::Point> > contoursCleaned;
+    const int MAX_AREA = (edges.cols - 10) * (edges.rows - 10);
 
     cv::findContours(edges, contours, cnt_method, cv::CHAIN_APPROX_TC89_KCOS);
     // clean up according to arclength and area.
     for (int i = 0; i < contours.size(); ++i) {
-        if (cv::arcLength(contours[i], false) > 800 and cv::contourArea(contours[i]) > 20000) {
+        if (cv::arcLength(contours[i], false) > 800 and cv::contourArea(contours[i]) > 20000 and cv::contourArea(contours[i]) < MAX_AREA) {
             contoursCleaned.push_back(contours[i]);
         }
     }
@@ -311,18 +318,19 @@ int find_best_corners (cv::Mat &input, std::vector < cv::Point > &rect) {
     default_rect.emplace_back (input.cols - 1, input.rows - 1);
     default_rect.emplace_back (0, input.rows - 1);
 
-    // convert to gray or check if already gray.
+    //convert to bgr
     if (input.type() == CV_8UC3) {
-        cv::cvtColor (input, img, cv::COLOR_BGR2GRAY);
-    } else if (input.type() == CV_8UC1) {
         input.copyTo (img);
+    } else if (input.type() == CV_8UC1) {
+        cv::cvtColor (input, img, cv::COLOR_GRAY2BGR);
     } else {
         // input is neither gray nor BGR
         rect = default_rect;
         return -1;
     }
 
-    _image_preprocessing (img, img, 5, 51, 2);
+    _image_preprocessing (img, img, 33, 25, 1);
+
 
 #ifdef DEBUG
     cv::namedWindow ("blur", cv::WINDOW_AUTOSIZE);

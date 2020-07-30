@@ -14,34 +14,58 @@
 #include "opencv2/highgui.hpp"
 #include "opencv2/calib3d.hpp"
 #include "corners.hpp"
+#include "dirent.h"
+#include <string> 
 
 int main(int argc, char *argv[]) {
-    std::string fileName = "img_33.jpg";
-    std::string outName = "filtered.jpg";
-    if (argc >= 2) {
-        fileName = std::string (argv[1]);
-        if (argc >= 3) {
-            outName = argv[2];
-        }
-    }
-    cv::Mat input = cv::imread(fileName, cv::IMREAD_COLOR);
-    resize_image_if_bigger (input, input, 1300);
-    
-    std::vector <cv::Point> rect;
-    int ret = find_best_corners (input, rect);
-
-    cv::Mat dst;
-    four_point_transform (input, dst, rect, cv::INTER_NEAREST);
-
 #ifdef DEBUG
-    cv::namedWindow ("out", cv::WINDOW_AUTOSIZE);
-    cv::imshow ("out", dst);
-    cv::waitKey(0);
-    cv::destroyAllWindows();
-    std::cout << (ret == 0 ? "Perfect" : "Couldn't find") << std::endl;
+    // cv::namedWindow ("out", cv::WINDOW_AUTOSIZE);
 #endif
 
-    cv::imwrite (outName, dst);
+    if (argc == 1) {
+        DIR *dir;
+        struct dirent *ent;
+        std::string dirName = "/home/satvik/codes/Scanner_OP/dataset";
+
+        if ((dir = opendir (dirName.c_str())) != NULL) {
+            while ((ent = readdir (dir)) != NULL) {
+                std::string fileName = ent->d_name;
+                if (fileName.find(".jpg") != std::string::npos) {
+                    std::cout << fileName << std::endl;
+
+                    cv::Mat input = cv::imread(dirName + fileName, cv::IMREAD_COLOR);
+                    resize_image_if_bigger (input, input, 1500);
+    #ifdef DEBUG
+                    // cv::imshow ("out", input);
+                    // cv::waitKey(0);
+    #endif
+                    std::vector <cv::Point> rect;
+                    int ret = find_best_corners (input, rect);
+                }
+        
+            }
+            closedir (dir);
+        } else {
+            perror ("");
+            return EXIT_FAILURE;
+        }
+    } else {
+        std::string fileName = std::string (argv[1]);
+        cv::Mat input = cv::imread(fileName, cv::IMREAD_COLOR);
+                    resize_image_if_bigger (input, input, 1500);
+ 
+        std::vector <cv::Point> rect;
+        int ret = find_best_corners (input, rect);
+}
+
+    
+
+#ifdef DEBUG
+    cv::destroyAllWindows();
+#endif    
+
+
+    // cv::imwrite (outName, dst);
 
     return 0;
 }
